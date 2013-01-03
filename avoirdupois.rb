@@ -110,13 +110,13 @@ hotspots = []
       "type" => poi.icon.iconType
     }
   end
-
   hotspots << hotspot
 end
 
 if hotspots.length == 0
   errorcode = 21
-  errorstring = "No results found.  Are you on a York campus or near a York building?"
+  errorstring = "No results found.  (Please customize this error message.)"
+  # TODO Customize the error message
 end
 
 response = {
