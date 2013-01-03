@@ -1,3 +1,3 @@
 class Action < ActiveRecord::Base
-  belongs_to :pois
+  has_one :pois
 end

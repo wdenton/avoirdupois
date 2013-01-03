@@ -1,0 +1,82 @@
+Bookstore:
+  action:
+    url: http://bookstore.yorku.ca/
+    label: Web site
+Bookstore &#8211; York Lanes (YL):
+  action:
+    url: http://bookstore.yorku.ca/
+    label: Web site
+Calumet Residence (CR):
+  action:
+    url: http://studenthousing.info.yorku.ca/undergrad/buildings/calumet/
+    label: Web site
+Founders Residence (FR):
+  action:
+    url: http://www.yorku.ca/founders/residence.html
+    label: Web site
+Passy Gardens (PASSY):
+  action:
+    url: http://studenthousing.info.yorku.ca/yorkapts/buildings/passy/
+    label: Web site
+Stong Residence (SRC):
+  action:
+    url: http://studenthousing.info.yorku.ca/undergrad/buildings/stong/
+    label: Web site
+Tatham Hall (TH):
+  action:
+    url: http://studenthousing.info.yorku.ca/undergrad/buildings/tatham/
+    label: Web site
+The Pond Road Residence (PON):
+  action:
+    url: http://studenthousing.info.yorku.ca/undergrad/buildings/pond/
+    label: Web site
+Winters Residence (WR):
+  action:
+    url: http://studenthousing.info.yorku.ca/undergrad/buildings/winters/
+    label: Web site
+Norman Bethune Residence (BR):
+  action:
+    url: http://studenthousing.info.yorku.ca/undergrad/buildings/bethune/
+    label: Web site
+Scott Library (SCL):
+  description: York's largest library, focusing on arts, humanities and social sciences. Research help is available. For hours, see web site.
+  action:
+    url: http://www.library.yorku.ca/
+    label: Web site
+Seneca @ York (SAY):
+    action:
+      url: http://www.senecac.on.ca/campuses/yorklocation.html
+      label: Web site
+Seymour Schulich Building (SSB):
+  action:
+    url: http://www.schulich.yorku.ca/
+    label: Schulich School of Business web site
+Steacie Science &#038; Engineering Library (STL):
+  action:
+    url: http://www.library.yorku.ca/cms/steacie/
+    label: Web site
+Gales Gallery (ACW):
+  description: 'The Gales Gallery of the Department of Visual Arts presents exhibitions weekly during the academic year, showcasing the work of graduate and undergraduate student artists in the Faculty of Fine Arts, York University.'
+  action:
+    url: http://visa.finearts.yorku.ca/facilities/gales-gallery/
+    label: Web site
+Security Services:
+  action:
+    url: http://www.yorku.ca/security/
+    label: Web site
+TTC Route 60:
+  action:
+    url: http://www3.ttc.ca/Routes/60/Routemap.jsp
+    label: Route schedule
+Osgoode Professional Development Centre:
+  action:
+    url: http://www.osgoodepd.ca/
+    label: Web site
+Innovation York:
+  action:
+    url: http://www.innovationyork.ca/
+    label: Web site
+York University - TD Community Engagement Centre:
+  action:
+    url: http://cec.info.yorku.ca/
+    label: Web site
