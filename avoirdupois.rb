@@ -152,4 +152,6 @@ if ! params["radius"]
   response["radius"] = radius
 end
 
+puts "Content-type: application/json"
+puts
 puts response.to_json
