@@ -1,3 +1,3 @@
 class Action < ActiveRecord::Base
-  has_one :pois
+  has_one :poi
 end

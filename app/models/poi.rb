@@ -1,8 +1,8 @@
 class Poi < ActiveRecord::Base
-  belongs_to :layers
-  has_one  :icon
-  has_many :actions
-  has_many :ubjects
+  belongs_to :layer
+  has_one    :icon
+  has_many   :actions
+  has_one    :ubject
 
   def distance(latitude, longitude)
 

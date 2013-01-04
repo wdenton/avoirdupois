@@ -49,9 +49,7 @@ ActiveRecord::Schema.define(:version => 001) do
   end
   create_table "pois", :force => true do |t|
     t.references :layer
-    t.references :icon
-    t.references :transform
-    t.references :ubject
+    t.references :action
     t.string     :title, :null => false
     t.string     :description
     t.string     :footnote
@@ -100,8 +98,9 @@ ActiveRecord::Schema.define(:version => 001) do
     drop_table "ubjects"
   end
   create_table "ubjects", :force => true do |t|
+    t.references :poi
     t.string     :url, :null => false
-    t.string     :reducedUrl, :null => false
+    t.string     :reducedURL, :null => false
     t.string     :contentType, :null => false
     t.float      :size, :null => false
   end
@@ -110,6 +109,7 @@ ActiveRecord::Schema.define(:version => 001) do
     drop_table "transforms"
   end
   create_table "transforms", :force => true do |t|
+    t.references :poi
     t.integer    :rel, :default => 0
     t.decimal    :angle, :size => [5, 2], :default => 0.00
     t.decimal    :rotate_x, :size => [2, 1], :default => 0.0
