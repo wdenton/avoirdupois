@@ -110,11 +110,11 @@ ActiveRecord::Schema.define(:version => 001) do
   end
   create_table "transforms", :force => true do |t|
     t.references :poi
-    t.integer    :rel, :default => 0
+    t.boolean    :rel, :default => false
     t.decimal    :angle, :size => [5, 2], :default => 0.00
-    t.decimal    :rotate_x, :size => [2, 1], :default => 0.0
-    t.decimal    :rotate_y, :size => [2, 1], :default => 0.0
-    t.decimal    :rotate_z, :size => [2, 1], :default => 1.0
+    t.decimal    :rotate_x, :size => [2, 1], :default => 0.0, :null => false
+    t.decimal    :rotate_y, :size => [2, 1], :default => 0.0, :null => false
+    t.decimal    :rotate_z, :size => [2, 1], :default => 1.0, :null => false
     t.decimal    :translate_x, :size => [2, 1], :default => 0.0
     t.decimal    :translate_y, :size => [2, 1], :default => 0.0
     t.decimal    :translate_z, :size => [2, 1], :default => 0.0

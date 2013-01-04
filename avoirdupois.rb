@@ -67,14 +67,14 @@ errorstring = "ok"
 # Exit cleanly right away if the requested layer isn't known
 if @layer.nil?
   response = {
-    "errorCode" => 20,
+    "errorCode"   => 20,
     "errorString" => "No such layer " + params["layerName"][0]
   }
   puts response.to_json
   exit
 end
 
-latitude = params["lat"][0].to_f
+latitude  = params["lat"][0].to_f
 longitude = params["lon"][0].to_f
 
 radius = params["radius"][0].to_i || 500 # Default to 500m radius if none provided
@@ -93,42 +93,67 @@ hotspots = []
   hotspot = Hash.new
   hotspot["id"] = poi.id
   hotspot["text"] = {
-    "title" => poi.title,
+    "title"       => poi.title,
     "description" => poi.description,
-    "footnote" => poi.footnote
+    "footnote"    => poi.footnote
   }
-  hotspot["anchor"] = {"geolocation" => {"lat" => poi.lat, "lon" => poi.lon}}
-  hotspot["imageURL"] = poi.imageURL
-  hotspot["biwStyle"] = poi.biwStyle
-  hotspot["showSmallBiw"] = poi.showSmallBiw
+  hotspot["anchor"]         = {"geolocation" => {"lat" => poi.lat, "lon" => poi.lon}}
+  hotspot["imageURL"]       = poi.imageURL
+  hotspot["biwStyle"]       = poi.biwStyle
+  hotspot["showSmallBiw"]   = poi.showSmallBiw
   hotspot["showBiwOnClick"] = poi.showBiwOnClick
 
   if poi.actions
-    # puts poi["title"]
     hotspot["actions"] = []
     poi.actions.each do |action|
-      # puts action["uri"]
-      # puts action["label"]
+      # STDERR.puts action["label"]
       hotspot["actions"] << {
-        "uri" => action.uri,
-        "label" => action.label,
-        "contentType" => action.contentType,
+        "uri"          => action.uri,
+        "label"        => action.label,
+        "contentType"  => action.contentType,
         "activityType" => action.activityType,
-        "method" => action.method
+        "method"       => action.method
       }
     end
   end
 
   if poi.icon
     hotspot["icon"] = {
-      "url" => poi.icon.url,
+      "url"  => poi.icon.url,
       "type" => poi.icon.iconType
     }
   end
 
-  # TODO: Ubjects
+  if poi.ubject
+    hotspot["object"] = {
+      "url"         => poi.ubject.url,
+      "reducedURL"  => poi.ubject.reducedURL,
+      "contentType" => poi.ubject.contentType,
+      "size"        => poi.ubject.size
+    }
+  end
 
-  # TODO: Transforms
+  # TODO Test a transform
+  if poi.transform
+    puts poi.transform.url
+    hotspot["transform"] = {
+      "rotate" => {
+        "rel"   => poi.transform.url,
+        "angle" => poi.transform.angle,
+        "axis" => {
+          "x" => poi.transform.rotate_x,
+          "y" => poi.transform.rotate_y,
+          "z" => poi.transform.rotate_z,
+        }
+      },
+      "translate" => {
+        "x" => poi.transform.translate_x,
+        "y" => poi.transform.translate_y,
+        "z" => poi.transform.translate_z,
+      },
+    "scale" => poi.transform.scale
+    }
+  end
 
   hotspots << hotspot
 end
@@ -140,14 +165,14 @@ if hotspots.length == 0
 end
 
 response = {
-  "layer" => @layer.name,
-  "biwStyle" => @layer.biwStyle,
-  "showMessage" => @layer.showMessage,
+  "layer"           => @layer.name,
+  "biwStyle"        => @layer.biwStyle,
+  "showMessage"     => @layer.showMessage,
   "refreshDistance" => @layer.refreshDistance,
   "refreshInterval" => @layer.refreshInterval,
-  "hotspots" => hotspots,
-  "errorCode" => errorcode,
-  "errorString" => errorstring,
+  "hotspots"        => hotspots,
+  "errorCode"       => errorcode,
+  "errorString"     => errorstring,
 }
 # TODO add layer actions
 

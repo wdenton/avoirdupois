@@ -3,6 +3,7 @@ class Poi < ActiveRecord::Base
   has_one    :icon
   has_many   :actions
   has_one    :ubject
+  has_one    :transform
 
   def distance(latitude, longitude)
 
