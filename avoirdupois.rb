@@ -103,8 +103,7 @@ hotspots = []
   hotspot["showSmallBiw"] = poi.showSmallBiw
   hotspot["showBiwOnClick"] = poi.showBiwOnClick
 
-  # Associate any actions
-  if defined?(poi.actions)
+  if poi.actions
     # puts poi["title"]
     hotspot["actions"] = []
     poi.actions.each do |action|
@@ -120,13 +119,17 @@ hotspots = []
     end
   end
 
-  # Is there an icon?
-  if defined?(poi.icon)
+  if poi.icon
     hotspot["icon"] = {
       "url" => poi.icon.url,
       "type" => poi.icon.iconType
     }
   end
+
+  # TODO: Ubjects
+
+  # TODO: Transforms
+
   hotspots << hotspot
 end
 
