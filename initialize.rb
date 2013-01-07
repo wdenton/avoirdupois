@@ -120,4 +120,21 @@ ActiveRecord::Schema.define(:version => 001) do
     t.decimal    :translate_z, :size => [2, 1], :default => 0.0
     t.decimal    :scale, :size => [12, 2], :default => 1.0, :null => false
   end
+
+  if table_exists? "checkboxes"
+    drop_table "checkboxes"
+  end
+  create_table "checkboxes", :force => true do |t|
+    t.integer    :option_value
+    t.string     :label
+  end
+
+  if table_exists? "checkboxes_pois" # For has_and_belongs_to_many relation
+    drop_table "checkboxes_pois"
+  end
+  create_table "checkboxes_pois", :force => true do |t|
+    t.integer    :checkbox_id
+    t.string     :poi_id
+  end
+
 end
