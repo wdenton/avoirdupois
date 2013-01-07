@@ -7,16 +7,16 @@ class Poi < ActiveRecord::Base
   has_and_belongs_to_many   :checkboxes
 
   # This method lets us use the checkbox filter.
-  # If an array of checkbox IDs is passed in, this will return
-  # all the POIs that match.  If the array is empty, it
-  # will return all POIs.  Hence this method can always be
-  # used, and it will only take effect when needed.  (Though if
-  # you're not using the checkbox filter at all, you can leave it out.)
-  def self.checkboxed(checks)
-    if checks.empty?
+  # If an array of checkbox option values from Layer is passed in,
+  # this will return all the POIs that match.  If the array is empty,
+  # it will return all POIs.  Hence this method can always be used,
+  # and it will only take effect when needed.  (Though if you're not
+  # using the checkbox filter at all, you can leave it out.)
+  def self.checkboxed(checkmarks)
+    if checkmarks.empty?
       return all
     else
-      joins("INNER JOIN checkboxes_pois c_p").where("c_p.poi_id = pois.id AND c_p.checkbox_id IN (?)", checks)
+      joins("INNER JOIN checkboxes c, checkboxes_pois c_p").where("c_p.poi_id = pois.id AND c_p.checkbox_id = c.id AND c.option_value IN (?)", checkmarks)
     end
   end
 
