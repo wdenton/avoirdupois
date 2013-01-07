@@ -12,7 +12,7 @@ class Poi < ActiveRecord::Base
   # it will return all POIs.  Hence this method can always be used,
   # and it will only take effect when needed.  (Though if you're not
   # using the checkbox filter at all, you can leave it out.)
-  def self.checkboxed(checkmarks)
+    def self.checkboxed(checkmarks)
     if checkmarks.empty?
       return all
     else

@@ -77,11 +77,14 @@ end
 latitude  = params["lat"][0].to_f
 longitude = params["lon"][0].to_f
 
-radius = params["radius"][0].to_i || 500 # Default to 500m radius if none provided
+radius = params["radius"][0].to_i || 1000 # Default to 1000m radius if none provided
+
+# Turn CHECKBOXLIST=1,2,5 into array of integers [1, 2, 5]
+checkmarks = params["CHECKBOXLIST"][0].split(",").map {|x| x.to_i} || []
 
 hotspots = []
 
-@layer.pois.each do |poi|
+@layer.pois.checkboxed(checkmarks).each do |poi|
   # next if poi.distance(latitude, longitude) > radius
   next unless poi.within_radius(latitude, longitude, radius)
   # TODO:
