@@ -80,11 +80,19 @@ longitude = params["lon"][0].to_f
 radius = params["radius"][0].to_i || 1000 # Default to 1000m radius if none provided
 
 # Turn CHECKBOXLIST=1,2,5 into array of integers [1, 2, 5]
+# (or an empty array, if no parameter is passed in).
 checkmarks = params["CHECKBOXLIST"][0].split(",").map {|x| x.to_i} || []
 
 hotspots = []
 
-@layer.pois.checkboxed(checkmarks).each do |poi|
+# TODO: Add support for nextPageKey
+# TODO: Add support for more Pages
+# TODO: Add support for layer-level actions
+# TODO: Add support for deletedHotspots
+# TODO: Add support for animations
+# http://layar.com/documentation/browser/api/getpois-response/
+
+@layer.pois.group(:id).checkboxed(checkmarks).each do |poi|
   # next if poi.distance(latitude, longitude) > radius
   next unless poi.within_radius(latitude, longitude, radius)
   # TODO:
@@ -92,7 +100,7 @@ hotspots = []
   # @layer.pois.within_radius(latitude, longtitude, radius).each
   # or something like that
   # See http://guides.rubyonrails.org/active_record_querying.html#scopes
-  # STDERR.puts poi.title
+  STDERR.puts poi.title
   hotspot = Hash.new
   hotspot["id"] = poi.id
   hotspot["text"] = {
@@ -127,7 +135,7 @@ hotspots = []
     }
   end
 
-  if poi.ubject
+  if poi.ubject # Object being a reserved word in Ruby
     hotspot["object"] = {
       "url"         => poi.ubject.url,
       "reducedURL"  => poi.ubject.reducedURL,
@@ -138,10 +146,10 @@ hotspots = []
 
   # TODO Test a transform
   if poi.transform
-    puts poi.transform.url
+    # STDERR.puts poi.transform.url
     hotspot["transform"] = {
       "rotate" => {
-        "rel"   => poi.transform.url,
+        "rel"   => poi.transform.rel,
         "angle" => poi.transform.angle,
         "axis" => {
           "x" => poi.transform.rotate_x,
@@ -163,14 +171,14 @@ end
 
 if hotspots.length == 0
   errorcode = 21
-  errorstring = "No results found.  (Please customize this error message.)"
+  errorstring = "No results found.  Try adjusting your search range and any filters."
   # TODO Customize the error message
 end
 
 response = {
   "layer"           => @layer.name,
   "biwStyle"        => @layer.biwStyle,
-  "showMessage"     => @layer.showMessage,
+  "showMessage"     => @layer.showMessage + " (#{ENV['ENV']})",
   "refreshDistance" => @layer.refreshDistance,
   "refreshInterval" => @layer.refreshInterval,
   "hotspots"        => hotspots,
@@ -179,6 +187,11 @@ response = {
 }
 # TODO add layer actions
 
+# "NOTE that this parameter must be returned if the GetPOIs request
+# doesn't contain a requested radius. It cannot be used to overrule a
+# value of radius if that was provided in the request. the unit is
+# meter."
+# http://layar.com/documentation/browser/api/getpois-response/#root-radius
 if ! params["radius"]
   response["radius"] = radius
 end

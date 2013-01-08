@@ -17,6 +17,8 @@ class Poi < ActiveRecord::Base
       return all
     else
       joins("INNER JOIN checkboxes c, checkboxes_pois c_p").where("c_p.poi_id = pois.id AND c_p.checkbox_id = c.id AND c.option_value IN (?)", checkmarks)
+      # Without a GROUP BY the same POI will be return more than once if it matches more than one checkmark.  This is handled by the group(:id)
+      # filter when this method is called.
     end
   end
 

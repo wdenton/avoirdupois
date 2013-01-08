@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(:version => 001) do
   end
   create_table "pois", :force => true do |t|
     t.references :layer
-    t.references :action
+    # t.references :action
     t.string     :title, :null => false
     t.string     :description
     t.string     :footnote
@@ -111,7 +111,8 @@ ActiveRecord::Schema.define(:version => 001) do
   create_table "transforms", :force => true do |t|
     t.references :poi
     t.boolean    :rel, :default => false
-    t.decimal    :angle, :size => [5, 2], :default => 0.00
+    # t.decimal    :angle, :size => [5, 2], :default => 0.00, :null => false
+    t.integer    :angle, :null => false
     t.decimal    :rotate_x, :size => [2, 1], :default => 0.0, :null => false
     t.decimal    :rotate_y, :size => [2, 1], :default => 0.0, :null => false
     t.decimal    :rotate_z, :size => [2, 1], :default => 1.0, :null => false
