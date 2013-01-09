@@ -3,9 +3,6 @@
 require 'rubygems'
 require 'active_record'
 
-require 'sqlite3'
-require 'yaml'
-
 dbconfig = YAML::load(File.open('config/database.yml'))[ENV['ENV'] ? ENV['ENV'] : 'development']
 ActiveRecord::Base.establish_connection(dbconfig)
 
@@ -63,10 +60,6 @@ placemark_files.each do |placemark_file|
   end
 
   json.each do |placemark|
-
-    # if placemark["category"].any? {|c| c.match(/(transit|ttc)/i)} # Ignore anything in a Transit category (for now)
-    #   next
-    # end
 
     poi = Poi.new
     poi.yorknum = placemark["ID"]
