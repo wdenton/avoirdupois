@@ -51,6 +51,8 @@ l = Layer.find_or_create_by_name(:name => "yorkuniversitytoronto",
                             :biwStyle => "classic",
                             )
 
+option_value = 1
+
 placemark_files.each do |placemark_file|
 
   begin
@@ -61,9 +63,11 @@ placemark_files.each do |placemark_file|
   end
 
   json.each do |placemark|
-    if placemark["category"].any? {|c| c.match(/(transit|ttc)/i)} # Ignore anything in a Transit category (for now)
-      next
-    end
+
+    # if placemark["category"].any? {|c| c.match(/(transit|ttc)/i)} # Ignore anything in a Transit category (for now)
+    #   next
+    # end
+
     poi = Poi.new
     poi.yorknum = placemark["ID"]
     poi.title = CGI.unescapeHTML(placemark["title"])
@@ -137,16 +141,24 @@ placemark_files.each do |placemark_file|
       action.autoTrigger = false
       poi.actions << action
     end
+
+    if placemark["category"].any?
+      placemark["category"].each do |c|
+        STDERR.puts "  Category: #{c}"
+        cat = Checkbox.find_by_label(c)
+        if cat.nil?
+          cat = Checkbox.create(:label => c, :option_value => option_value)
+          option_value += 1
+        end
+        poi.checkboxes << cat
+      end
+    end
+
     l.pois << poi
   end
 end
 
-# yaml = {
-#   "layers" => layers,
-#   "pois" => pois,
-#   "poiActions" => actions,
-#   "icons" => icons,
-# }
-
-# puts yaml.to_yaml
-
+puts "Checkbox configuration for Layar:"
+Checkbox.all.each do |c|
+  puts "#{c.option_value} | #{c.label}"
+end
