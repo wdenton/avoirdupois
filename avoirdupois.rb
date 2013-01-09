@@ -121,13 +121,16 @@ hotspots = []
 # @layer.pois.group(:id).within_range(latitude, longitude, radius)
 # then we definitely want to use it.
 
-sql = "SELECT *,
+# Note re tests: make sure the id numbers returned are unique.
+# Not specifying IDs from the pois table will lead to trouble.
+
+sql = "SELECT p.*,
  (((acos(sin((? * pi() / 180)) * sin((lat * pi() / 180)) +  cos((? * pi() / 180)) * cos((lat * pi() / 180)) * cos((? - lon) * pi() / 180))) * 180 / pi())* 60 * 1.1515 * 1.609344 * 1000) AS distance
- FROM  pois p
- INNER JOIN checkboxes_pois cp ON cp.poi_id = p.id
- INNER JOIN checkboxes c ON cp.checkbox_id = c.id
+ FROM  pois p, checkboxes_pois cp, checkboxes c
  WHERE p.layer_id = ?
- AND   c.option_value in (?)
+ AND cp.poi_id = p.id
+ AND cp.checkbox_id = c.id
+ AND c.option_value in (?)
  GROUP BY p.id
  HAVING distance < ?
  ORDER BY distance asc" # "
