@@ -99,10 +99,14 @@ ActiveRecord::Schema.define(:version => 001) do
   end
   create_table "ubjects", :force => true do |t|
     t.references :poi
-    t.string     :url, :null => false
-    t.string     :reducedURL, :null => false
     t.string     :contentType, :null => false
+    t.string     :url, :null => false
     t.float      :size, :null => false
+    t.string     :reducedURL
+    t.integer    :height       # Mandatory for HTML
+    t.integer    :width        # Mandatory for HTML
+    t.boolean    :scrollable   # Mandatory for HTML
+    t.boolean    :interactive  # Mandatory for HTML
   end
 
   if table_exists? "transforms"

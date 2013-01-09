@@ -93,6 +93,8 @@ hotspots = []
 # http://layar.com/documentation/browser/api/getpois-response/
 
 @layer.pois.group(:id).checkboxed(checkmarks).each do |poi|
+  # TODO: Add paging through >50 results.
+  # TODO: Add ordering by distance.
   # next if poi.distance(latitude, longitude) > radius
   next unless poi.within_radius(latitude, longitude, radius)
   # TODO:
@@ -137,11 +139,23 @@ hotspots = []
 
   if poi.ubject # Object being a reserved word in Ruby
     hotspot["object"] = {
+      # These three are common to both kinds of objects.
       "url"         => poi.ubject.url,
-      "reducedURL"  => poi.ubject.reducedURL,
       "contentType" => poi.ubject.contentType,
       "size"        => poi.ubject.size
     }
+    if poi.ubject.contentType == "model/vnd.layar.l3d"
+      hotspot["object"]["reducedURL"] = poi.ubject.reducedURL
+    elsif poi.ubject.contentType == "text/html"
+      hotspot["object"]["viewport"] = {
+        "width"       => poi.ubject.width,
+        "height"      => poi.ubject.height,
+        "scrollable"  => poi.ubject.scrollable,
+        "interactive" => poi.ubject.interactive
+      }
+    end
+
+
   end
 
   # TODO Test a transform
