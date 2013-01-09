@@ -1,10 +1,10 @@
 class Poi < ActiveRecord::Base
   belongs_to :layer
-  has_one    :icon
-  has_many   :actions
-  has_one    :ubject
-  has_one    :transform
-  has_and_belongs_to_many   :checkboxes
+  has_one    :icon, :dependent => :destroy
+  has_many   :actions, :dependent => :destroy
+  has_one    :ubject, :dependent => :destroy
+  has_one    :transform, :dependent => :destroy
+  has_and_belongs_to_many :checkboxes
 
   # This method lets us use the checkbox filter.
   # If an array of checkbox option values from Layer is passed in,
