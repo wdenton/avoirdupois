@@ -1,3 +1,4 @@
 *~
 .bundle/
 gems/
+config/database.yml

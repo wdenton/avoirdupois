@@ -19,9 +19,7 @@
 
 require 'rubygems'
 require 'active_record'
-
-require 'sqlite3'
-# require 'yaml'
+require 'mysql2'
 
 dbconfig = YAML::load(File.open('config/database.yml'))[ENV['ENV'] ? ENV['ENV'] : 'development']
 puts dbconfig

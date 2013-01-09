@@ -21,7 +21,7 @@ require 'cgi'
 
 require 'rubygems'
 require 'active_record'
-require 'sqlite3'
+require 'mysql2'
 
 dbconfig = YAML::load(File.open('config/database.yml'))[ENV['ENV'] ? ENV['ENV'] : 'development']
 ActiveRecord::Base.establish_connection(dbconfig)
@@ -92,16 +92,48 @@ hotspots = []
 # TODO: Add support for animations
 # http://layar.com/documentation/browser/api/getpois-response/
 
-@layer.pois.group(:id).checkboxed(checkmarks).each do |poi|
+# Find all of the POIs in range in this layer.
+#
+# There's a slightly ugly SQL statement here that's used with a
+# find_by_sql statement because we can't use the ActiveRecord methods
+# to do exactly what we want: determining the distances between the
+# user and the POIs.  We need to use the Haversine formula for this.
+# In the SQL statement we do a calculation (thanks to MySQL having all
+# of this built in) and then assign that number to the variable
+# distance, then select and sort based on distance.  It would be nice
+# if we could use ActiveRecord normally to do this, with some sort of
+# class method on Poi, but we can't, because there's no way to get
+# "as" into the statement.
+#
+# If we didn't need to bother so much about distance, we could just do
+# a query like this:
+#
+# @layer.pois.group(:id).checkboxed(checkmarks).each do |poi|
+#   next unless poi.within_radius(latitude, longitude, radius)
+#   puts poi.title
+# end
+#
+# That works fine.  See poi.rb for the checkboxed method, with uses
+# ActiveRecord's join and where commands to control the SQL the way we
+# want.
+#
+# If there really is some way to say
+# @layer.pois.group(:id).within_range(latitude, longitude, radius)
+# then we definitely want to use it.
+
+sql = "SELECT *,
+ (((acos(sin((? * pi() / 180)) * sin((lat * pi() / 180)) +  cos((? * pi() / 180)) * cos((lat * pi() / 180)) * cos((? - lon) * pi() / 180))) * 180 / pi())* 60 * 1.1515 * 1.609344 * 1000) AS distance
+ FROM  pois p
+ INNER JOIN checkboxes_pois cp ON cp.poi_id = p.id
+ INNER JOIN checkboxes c ON cp.checkbox_id = c.id
+ WHERE p.layer_id = ?
+ AND   c.option_value in (?)
+ GROUP BY p.id
+ HAVING distance < ?
+ ORDER BY distance asc" # "
+
+Poi.find_by_sql([sql, latitude, latitude, longitude, @layer.id, checkmarks, radius]).each do |poi|
   # TODO: Add paging through >50 results.
-  # TODO: Add ordering by distance.
-  # next if poi.distance(latitude, longitude) > radius
-  next unless poi.within_radius(latitude, longitude, radius)
-  # TODO:
-  # Make it so I can do the query thusly:
-  # @layer.pois.within_radius(latitude, longtitude, radius).each
-  # or something like that
-  # See http://guides.rubyonrails.org/active_record_querying.html#scopes
   # STDERR.puts poi.title
   hotspot = Hash.new
   hotspot["id"] = poi.id

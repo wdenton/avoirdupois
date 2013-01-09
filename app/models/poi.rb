@@ -22,12 +22,6 @@ class Poi < ActiveRecord::Base
     end
   end
 
-  # def self.within_radius(latitude, longitude, radius)
-  #   # There's no acos function in SQLite, so we can't build the Haversine formula into a statemen
-  #   # like we can with MySQL or PostgreSQL.
-  #   # TODO Require MySQL?  Figure out a way around the problem?
-  # end
-
   def within_radius(latitude, longitude, radius)
     distance(latitude, longitude) <= radius
   end
@@ -65,4 +59,3 @@ class Poi < ActiveRecord::Base
   end
 
 end
-
