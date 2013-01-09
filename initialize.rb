@@ -22,7 +22,6 @@ require 'active_record'
 require 'mysql2'
 
 dbconfig = YAML::load(File.open('config/database.yml'))[ENV['ENV'] ? ENV['ENV'] : 'development']
-puts dbconfig
 ActiveRecord::Base.establish_connection(dbconfig)
 
 # Primary key columns named "id" will be created automatically,
