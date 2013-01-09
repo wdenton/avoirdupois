@@ -12,7 +12,7 @@ class Poi < ActiveRecord::Base
   # it will return all POIs.  Hence this method can always be used,
   # and it will only take effect when needed.  (Though if you're not
   # using the checkbox filter at all, you can leave it out.)
-    def self.checkboxed(checkmarks)
+  def self.checkboxed(checkmarks)
     if checkmarks.empty?
       return all
     else
@@ -20,6 +20,16 @@ class Poi < ActiveRecord::Base
       # Without a GROUP BY the same POI will be return more than once if it matches more than one checkmark.  This is handled by the group(:id)
       # filter when this method is called.
     end
+  end
+
+  # def self.within_radius(latitude, longitude, radius)
+  #   # There's no acos function in SQLite, so we can't build the Haversine formula into a statemen
+  #   # like we can with MySQL or PostgreSQL.
+  #   # TODO Require MySQL?  Figure out a way around the problem?
+  # end
+
+  def within_radius(latitude, longitude, radius)
+    distance(latitude, longitude) <= radius
   end
 
   def distance(latitude, longitude)
@@ -53,12 +63,6 @@ class Poi < ActiveRecord::Base
     distance = earthRadius * c * 1000 # meters
     return distance
   end
-
-  def within_radius(latitude, longitude, radius)
-    distance(latitude, longitude) <= radius
-  end
-
-  # named_scope :distance
 
 end
 

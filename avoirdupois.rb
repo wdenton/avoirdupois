@@ -102,7 +102,7 @@ hotspots = []
   # @layer.pois.within_radius(latitude, longtitude, radius).each
   # or something like that
   # See http://guides.rubyonrails.org/active_record_querying.html#scopes
-  STDERR.puts poi.title
+  # STDERR.puts poi.title
   hotspot = Hash.new
   hotspot["id"] = poi.id
   hotspot["text"] = {
