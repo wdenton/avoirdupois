@@ -79,9 +79,13 @@ longitude = params["lon"][0].to_f
 
 radius = params["radius"][0].to_i || 1000 # Default to 1000m radius if none provided
 
-# Turn CHECKBOXLIST=1,2,5 into array of integers [1, 2, 5]
-# (or an empty array, if no parameter is passed in).
-checkmarks = params["CHECKBOXLIST"][0].split(",").map {|x| x.to_i} || []
+# Turn CHECKBOXLIST=1,2,5 into array of integers [1, 2, 5].
+# This gets a bit ugly later.
+if params["CHECKBOXLIST"].size > 0
+  checkmarks = params["CHECKBOXLIST"][0].split(",").map {|x| x.to_i}
+else
+  checkmarks = []
+end
 
 hotspots = []
 
@@ -124,18 +128,50 @@ hotspots = []
 # Note re tests: make sure the id numbers returned are unique.
 # Not specifying IDs from the pois table will lead to trouble.
 
-sql = "SELECT p.*,
+# All right, this stuff about checkboxes is a bit ugly.
+#
+# If there are no checkboxes given for a layer, then we don't want to
+# use them in our SQL query because it won't work.  So we need to have
+# two different SQL queries ready, one for each case.
+
+# Does this layer have checkboxes?  Make a list of all known checkbox IDs.
+known_checkboxes = Checkbox.find_by_sql(["select c.id from checkboxes c INNER JOIN pois p INNER JOIN checkboxes_pois cp WHERE cp.checkbox_id = c.id AND cp.poi_id = p.id AND p.layer_id = ? GROUP BY c.id", @layer.id]).map {|x| x.id}
+
+if known_checkboxes.empty?
+  # This layer has no checkboxes, so do a simpler query.
+  sql = "SELECT p.*,
  (((acos(sin((? * pi() / 180)) * sin((lat * pi() / 180)) +  cos((? * pi() / 180)) * cos((lat * pi() / 180)) * cos((? - lon) * pi() / 180))) * 180 / pi())* 60 * 1.1515 * 1.609344 * 1000) AS distance
- FROM  pois p, checkboxes_pois cp, checkboxes c
+ FROM  pois p
  WHERE p.layer_id = ?
- AND cp.poi_id = p.id
- AND cp.checkbox_id = c.id
- AND c.option_value in (?)
  GROUP BY p.id
  HAVING distance < ?
  ORDER BY distance asc" # "
+  pois = Poi.find_by_sql([sql, latitude, latitude, longitude, @layer.id, radius])
+else
+  # This layer has some, so we need a more complicated query.
 
-Poi.find_by_sql([sql, latitude, latitude, longitude, @layer.id, checkmarks, radius]).each do |poi|
+  # When no checkboxes are selected, return nothing with
+  # "c.option_value in (NULL) "
+  checkmarks = "NULL" if checkmarks.empty?
+
+  # When no checkboxes are selected, assume it's an oversight
+  # and return all POIs in range.
+  # checkmarks = known_checkboxes if checkmarks.empty?
+
+  sql = "SELECT p.*,
+ (((acos(sin((? * pi() / 180)) * sin((lat * pi() / 180)) +  cos((? * pi() / 180)) * cos((lat * pi() / 180)) * cos((? - lon) * pi() / 180))) * 180 / pi())* 60 * 1.1515 * 1.609344 * 1000) AS distance
+ FROM  pois p
+ INNER JOIN checkboxes_pois cp ON cp.poi_id = p.id
+ INNER JOIN checkboxes c ON cp.checkbox_id = c.id
+ WHERE p.layer_id = ?
+ AND   c.option_value in (?)
+ GROUP BY p.id
+ HAVING distance < ?
+ ORDER BY distance asc" # "
+  pois = Poi.find_by_sql([sql, latitude, latitude, longitude, @layer.id, checkmarks, radius])
+end
+
+pois.each do |poi|
   # TODO: Add paging through >50 results.
   # STDERR.puts poi.title
   hotspot = Hash.new
