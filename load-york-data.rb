@@ -44,7 +44,7 @@ l = Layer.find_or_create_by_name(:name => "yorkuniversitytoronto",
                             :refreshInterval => 300,
                             :refreshDistance => 100,
                             :fullRefresh => true,
-                            :showMessage => "",
+                            :showMessage => "Filters are available through Layer Actions in settings.'",
                             :biwStyle => "classic",
                             )
 
