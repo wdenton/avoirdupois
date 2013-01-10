@@ -134,20 +134,7 @@ hotspots = []
 # use them in our SQL query because it won't work.  So we need to have
 # two different SQL queries ready, one for each case.
 
-# Does this layer have checkboxes?  Make a list of all known checkbox IDs.
-known_checkboxes = Checkbox.find_by_sql(["select c.id from checkboxes c INNER JOIN pois p INNER JOIN checkboxes_pois cp WHERE cp.checkbox_id = c.id AND cp.poi_id = p.id AND p.layer_id = ? GROUP BY c.id", @layer.id]).map {|x| x.id}
-
-if known_checkboxes.empty?
-  # This layer has no checkboxes, so do a simpler query.
-  sql = "SELECT p.*,
- (((acos(sin((? * pi() / 180)) * sin((lat * pi() / 180)) +  cos((? * pi() / 180)) * cos((lat * pi() / 180)) * cos((? - lon) * pi() / 180))) * 180 / pi())* 60 * 1.1515 * 1.609344 * 1000) AS distance
- FROM  pois p
- WHERE p.layer_id = ?
- GROUP BY p.id
- HAVING distance < ?
- ORDER BY distance asc" # "
-  pois = Poi.find_by_sql([sql, latitude, latitude, longitude, @layer.id, radius])
-else
+if @layer.has_checkboxes
   # This layer has some, so we need a more complicated query.
 
   # When no checkboxes are selected, return nothing with
@@ -169,6 +156,16 @@ else
  HAVING distance < ?
  ORDER BY distance asc" # "
   pois = Poi.find_by_sql([sql, latitude, latitude, longitude, @layer.id, checkmarks, radius])
+else
+  # We can do a simpler query.
+  sql = "SELECT p.*,
+ (((acos(sin((? * pi() / 180)) * sin((lat * pi() / 180)) +  cos((? * pi() / 180)) * cos((lat * pi() / 180)) * cos((? - lon) * pi() / 180))) * 180 / pi())* 60 * 1.1515 * 1.609344 * 1000) AS distance
+ FROM  pois p
+ WHERE p.layer_id = ?
+ GROUP BY p.id
+ HAVING distance < ?
+ ORDER BY distance asc" # "
+  pois = Poi.find_by_sql([sql, latitude, latitude, longitude, @layer.id, radius])
 end
 
 pois.each do |poi|
@@ -263,7 +260,7 @@ end
 response = {
   "layer"           => @layer.name,
   "biwStyle"        => @layer.biwStyle,
-  "showMessage"     => @layer.showMessage + " (#{ENV['ENV']})",
+  "showMessage"     => @layer.showMessage # + " (#{ENV['ENV']})",
   "refreshDistance" => @layer.refreshDistance,
   "refreshInterval" => @layer.refreshInterval,
   "hotspots"        => hotspots,
@@ -276,7 +273,7 @@ response = {
 # doesn't contain a requested radius. It cannot be used to overrule a
 # value of radius if that was provided in the request. the unit is
 # meter."
-# http://layar.com/documentation/browser/api/getpois-response/#root-radius
+# -- http://layar.com/documentation/browser/api/getpois-response/#root-radius
 if ! params["radius"]
   response["radius"] = radius
 end
