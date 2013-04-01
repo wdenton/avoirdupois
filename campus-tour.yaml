@@ -1,11 +1,11 @@
-# For the Alternative Campus Tour
+# Alternative Campus Tour
 pois:
   - title: Vari Hall
-    description: Description.
-    footnote: Footnote.
-    lat: 43.773052,
+    description: I am standing in front of a yellow-bricked cylindrical-shaped building with a shiny copper roof in the centre and two lower rectangular structures extending from its sides.
+    footnote: As told by Anders Sandberg.
+    lat: 43.773052
     lon: -79.503571
-    imageURL: http://www.miskatonic.org/images/ar/sophie-100x75.jpg
+    imageURL: http://alternativecampustour.info.yorku.ca/files/2013/04/ar-layar-logo-110x43.png
     biwStyle: classic
     alt: 0
     doNotIndex: 0
@@ -14,7 +14,7 @@ pois:
     poiType: geo
     icon:
       label: Vari Hall
-      url: http://www.miskatonic.org/images/ar/sophie-100x75.jpg
+      url: http://laertes.herokuapp.com/icons/laertes-red-square.png
       type: 0
     actions: 
       - label: Read about Vari Hall
@@ -29,24 +29,12 @@ pois:
         showActivity: 1
         activityMessage: ""
         autoTrigger: false
-      - label: Hear about Vari Hall
-        uri: http://www.miskatonic.org/images/ar/sophie-short-audio-clip.mp3
-        autoTriggerRange: 15
-        autoTriggerOnly: ""
-        contentType: audio/mpeg
-        method: GET
-        activityType: 2
-        params: ""
-        closeBiw: 0
-        showActivity: 1
-        activityMessage: ""
-        autoTrigger: true
   - title: Student Centre
     description: Description.
-    footnote: Footnote.
+    footnote: As told by Jay Pitter.
     lat: 43.773788
     lon: -79.503075
-    imageURL: http://www.miskatonic.org/images/ar/sophie-100x75.jpg
+    imageURL: http://alternativecampustour.info.yorku.ca/files/2013/04/ar-layar-logo-110x43.png
     biwStyle: classic
     alt: 0
     doNotIndex: 0
@@ -55,7 +43,7 @@ pois:
     poiType: geo
     icon:
       label: Student Centre
-      url: http://www.miskatonic.org/images/ar/sophie-100x75.jpg
+      url: http://laertes.herokuapp.com/icons/laertes-red-square.png
       type: 0
     actions: 
       - label: Read about the Student Centre
@@ -70,24 +58,12 @@ pois:
         showActivity: 1
         activityMessage: ""
         autoTrigger: false
-      - label: Hear about the Student Centre
-        uri: http://www.miskatonic.org/images/ar/sophie-short-audio-clip.mp3
-        autoTriggerRange: 15
-        autoTriggerOnly: ""
-        contentType: audio/mpeg
-        method: GET
-        activityType: 2
-        params: ""
-        closeBiw: 0
-        showActivity: 1
-        activityMessage: ""
-        autoTrigger: true
   - title: Michael G. Boyer Woodlot
-    description: Description.
-    footnote: Footnote.
+    description: "First Nations peoples’ fires burnt the forest now known as the Michael Boyer Woodlot for centuries."
+    footnote: As told by Adrina Bardekjian.
     lat: 43.775337
     lon: -79.504700
-    imageURL: http://www.miskatonic.org/images/ar/sophie-100x75.jpg
+    imageURL: http://alternativecampustour.info.yorku.ca/files/2013/04/ar-layar-logo-110x43.png
     biwStyle: classic
     alt: 0
     doNotIndex: 0
@@ -96,7 +72,7 @@ pois:
     poiType: geo
     icon:
       label: Michael G. Boyer Woodlot
-      url: http://www.miskatonic.org/images/ar/sophie-100x75.jpg
+      url: http://alternativecampustour.info.yorku.ca/files/2013/04/ar-boyer-icon-110x110.png
       type: 0
     actions: 
       - label: Read about the Boyer Woodlot
@@ -111,24 +87,12 @@ pois:
         showActivity: 1
         activityMessage: ""
         autoTrigger: false
-      - label: Hear about the Boyer Woodlot
-        uri: http://www.miskatonic.org/images/ar/sophie-short-audio-clip.mp3
-        autoTriggerRange: 15
-        autoTriggerOnly: ""
-        contentType: audio/mpeg
-        method: GET
-        activityType: 2
-        params: ""
-        closeBiw: 0
-        showActivity: 1
-        activityMessage: ""
-        autoTrigger: true
   - title: Scott Library
-    description: Description.
-    footnote: Footnote.
+    description: "I love the library!"
+    footnote: As told by Dana Craig.
     lat: 43.772434
     lon: -79.505569
-    imageURL: http://www.miskatonic.org/images/ar/sophie-100x75.jpg
+    imageURL: http://alternativecampustour.info.yorku.ca/files/2013/04/ar-layar-logo-110x43.png
     biwStyle: classic
     alt: 0
     doNotIndex: 0
@@ -137,7 +101,7 @@ pois:
     poiType: geo
     icon:
       label: Scott Library
-      url: http://www.miskatonic.org/images/ar/sophie-100x75.jpg
+      url: http://alternativecampustour.info.yorku.ca/files/2013/04/ar-scott-icon-110x110.jpg
       type: 0
     actions: 
       - label: Read about 
@@ -152,24 +116,12 @@ pois:
         showActivity: 1
         activityMessage: ""
         autoTrigger: false
-      - label: Hear about
-        uri: http://www.miskatonic.org/images/ar/sophie-short-audio-clip.mp3
-        autoTriggerRange: 15
-        autoTriggerOnly: ""
-        contentType: audio/mpeg
-        method: GET
-        activityType: 2
-        params: ""
-        closeBiw: 0
-        showActivity: 1
-        activityMessage: ""
-        autoTrigger: true
   - title: HNES Native Species Garden
     description: Description.
-    footnote: Footnote.
+    footnote: As told by Michael Classens.
     lat: 43.771435
     lon: -79.504814
-    imageURL: http://www.miskatonic.org/images/ar/sophie-100x75.jpg
+    imageURL: http://alternativecampustour.info.yorku.ca/files/2013/04/ar-layar-logo-110x43.png
     biwStyle: classic
     alt: 0
     doNotIndex: 0
@@ -178,7 +130,7 @@ pois:
     poiType: geo
     icon:
       label: HNES Native Species Garden
-      url: http://www.miskatonic.org/images/ar/sophie-100x75.jpg
+      url: http://laertes.herokuapp.com/icons/laertes-red-square.png
       type: 0
     actions: 
       - label: Read about the Native Species Garden
@@ -193,24 +145,12 @@ pois:
         showActivity: 1
         activityMessage: ""
         autoTrigger: false
-      - label: Hear about it
-        uri: http://www.miskatonic.org/images/ar/sophie-short-audio-clip.mp3
-        autoTriggerRange: 15
-        autoTriggerOnly: ""
-        contentType: audio/mpeg
-        method: GET
-        activityType: 2
-        params: ""
-        closeBiw: 0
-        showActivity: 1
-        activityMessage: ""
-        autoTrigger: true
   - title: Stong Pond
     description: Description.
-    footnote: Footnote.
+    footnote: As told by Anders Sandberg.
     lat: 43.771046
     lon: -79.507286
-    imageURL: http://www.miskatonic.org/images/ar/sophie-100x75.jpg
+    imageURL: http://alternativecampustour.info.yorku.ca/files/2013/04/ar-layar-logo-110x43.png
     biwStyle: classic
     alt: 0
     doNotIndex: 0
@@ -219,7 +159,7 @@ pois:
     poiType: geo
     icon:
       label: Stong Pond
-      url: http://www.miskatonic.org/images/ar/sophie-100x75.jpg
+      url: http://laertes.herokuapp.com/icons/laertes-red-square.png
       type: 0
     actions: 
       - label: Read about Stong Pond
@@ -234,15 +174,3 @@ pois:
         showActivity: 1
         activityMessage: ""
         autoTrigger: false
-      - label: Hear about Stong Pond
-        uri: http://www.miskatonic.org/images/ar/sophie-short-audio-clip.mp3
-        autoTriggerRange: 15
-        autoTriggerOnly: ""
-        contentType: audio/mpeg
-        method: GET
-        activityType: 2
-        params: ""
-        closeBiw: 0
-        showActivity: 1
-        activityMessage: ""
-        autoTrigger: true
