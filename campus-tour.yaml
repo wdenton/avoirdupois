@@ -1,0 +1,248 @@
+# For the Alternative Campus Tour
+pois:
+  - title: Vari Hall
+    description: Description.
+    footnote: Footnote.
+    lat: 43.773052,
+    lon: -79.503571
+    imageURL: http://www.miskatonic.org/images/ar/sophie-100x75.jpg
+    biwStyle: classic
+    alt: 0
+    doNotIndex: 0
+    showSmallBiw: 1
+    showBiwOnClick: 1
+    poiType: geo
+    icon:
+      label: Vari Hall
+      url: http://www.miskatonic.org/images/ar/sophie-100x75.jpg
+      type: 0
+    actions: 
+      - label: Read about Vari Hall
+        uri: http://alternativecampustour.info.yorku.ca/sites/vari-hall/
+        autoTriggerRange: ""
+        autoTriggerOnly: ""
+        contentType: application/vnd.layar.internal
+        method: GET
+        activityType: 1
+        params: ""
+        closeBiw: 0
+        showActivity: 1
+        activityMessage: ""
+        autoTrigger: false
+      - label: Hear about Vari Hall
+        uri: http://www.miskatonic.org/images/ar/sophie-short-audio-clip.mp3
+        autoTriggerRange: 15
+        autoTriggerOnly: ""
+        contentType: audio/mpeg
+        method: GET
+        activityType: 2
+        params: ""
+        closeBiw: 0
+        showActivity: 1
+        activityMessage: ""
+        autoTrigger: true
+  - title: Student Centre
+    description: Description.
+    footnote: Footnote.
+    lat: 43.773788
+    lon: -79.503075
+    imageURL: http://www.miskatonic.org/images/ar/sophie-100x75.jpg
+    biwStyle: classic
+    alt: 0
+    doNotIndex: 0
+    showSmallBiw: 1
+    showBiwOnClick: 1
+    poiType: geo
+    icon:
+      label: Student Centre
+      url: http://www.miskatonic.org/images/ar/sophie-100x75.jpg
+      type: 0
+    actions: 
+      - label: Read about the Student Centre
+        uri: http://alternativecampustour.info.yorku.ca/sites/student-centre/
+        autoTriggerRange: ""
+        autoTriggerOnly: ""
+        contentType: application/vnd.layar.internal
+        method: GET
+        activityType: 1
+        params: ""
+        closeBiw: 0
+        showActivity: 1
+        activityMessage: ""
+        autoTrigger: false
+      - label: Hear about the Student Centre
+        uri: http://www.miskatonic.org/images/ar/sophie-short-audio-clip.mp3
+        autoTriggerRange: 15
+        autoTriggerOnly: ""
+        contentType: audio/mpeg
+        method: GET
+        activityType: 2
+        params: ""
+        closeBiw: 0
+        showActivity: 1
+        activityMessage: ""
+        autoTrigger: true
+  - title: Michael G. Boyer Woodlot
+    description: Description.
+    footnote: Footnote.
+    lat: 43.775337
+    lon: -79.504700
+    imageURL: http://www.miskatonic.org/images/ar/sophie-100x75.jpg
+    biwStyle: classic
+    alt: 0
+    doNotIndex: 0
+    showSmallBiw: 1
+    showBiwOnClick: 1
+    poiType: geo
+    icon:
+      label: Michael G. Boyer Woodlot
+      url: http://www.miskatonic.org/images/ar/sophie-100x75.jpg
+      type: 0
+    actions: 
+      - label: Read about the Boyer Woodlot
+        uri: http://alternativecampustour.info.yorku.ca/sites/boyer-woodlot/
+        autoTriggerRange: ""
+        autoTriggerOnly: ""
+        contentType: application/vnd.layar.internal
+        method: GET
+        activityType: 1
+        params: ""
+        closeBiw: 0
+        showActivity: 1
+        activityMessage: ""
+        autoTrigger: false
+      - label: Hear about the Boyer Woodlot
+        uri: http://www.miskatonic.org/images/ar/sophie-short-audio-clip.mp3
+        autoTriggerRange: 15
+        autoTriggerOnly: ""
+        contentType: audio/mpeg
+        method: GET
+        activityType: 2
+        params: ""
+        closeBiw: 0
+        showActivity: 1
+        activityMessage: ""
+        autoTrigger: true
+  - title: Scott Library
+    description: Description.
+    footnote: Footnote.
+    lat: 43.772434
+    lon: -79.505569
+    imageURL: http://www.miskatonic.org/images/ar/sophie-100x75.jpg
+    biwStyle: classic
+    alt: 0
+    doNotIndex: 0
+    showSmallBiw: 1
+    showBiwOnClick: 1
+    poiType: geo
+    icon:
+      label: Scott Library
+      url: http://www.miskatonic.org/images/ar/sophie-100x75.jpg
+      type: 0
+    actions: 
+      - label: Read about 
+        uri: http://alternativecampustour.info.yorku.ca/sites/
+        autoTriggerRange: ""
+        autoTriggerOnly: ""
+        contentType: application/vnd.layar.internal
+        method: GET
+        activityType: 1
+        params: ""
+        closeBiw: 0
+        showActivity: 1
+        activityMessage: ""
+        autoTrigger: false
+      - label: Hear about
+        uri: http://www.miskatonic.org/images/ar/sophie-short-audio-clip.mp3
+        autoTriggerRange: 15
+        autoTriggerOnly: ""
+        contentType: audio/mpeg
+        method: GET
+        activityType: 2
+        params: ""
+        closeBiw: 0
+        showActivity: 1
+        activityMessage: ""
+        autoTrigger: true
+  - title: HNES Native Species Garden
+    description: Description.
+    footnote: Footnote.
+    lat: 43.771435
+    lon: -79.504814
+    imageURL: http://www.miskatonic.org/images/ar/sophie-100x75.jpg
+    biwStyle: classic
+    alt: 0
+    doNotIndex: 0
+    showSmallBiw: 1
+    showBiwOnClick: 1
+    poiType: geo
+    icon:
+      label: HNES Native Species Garden
+      url: http://www.miskatonic.org/images/ar/sophie-100x75.jpg
+      type: 0
+    actions: 
+      - label: Read about the Native Species Garden
+        uri: http://alternativecampustour.info.yorku.ca/sites/
+        autoTriggerRange: ""
+        autoTriggerOnly: ""
+        contentType: application/vnd.layar.internal
+        method: GET
+        activityType: 1
+        params: ""
+        closeBiw: 0
+        showActivity: 1
+        activityMessage: ""
+        autoTrigger: false
+      - label: Hear about it
+        uri: http://www.miskatonic.org/images/ar/sophie-short-audio-clip.mp3
+        autoTriggerRange: 15
+        autoTriggerOnly: ""
+        contentType: audio/mpeg
+        method: GET
+        activityType: 2
+        params: ""
+        closeBiw: 0
+        showActivity: 1
+        activityMessage: ""
+        autoTrigger: true
+  - title: Stong Pond
+    description: Description.
+    footnote: Footnote.
+    lat: 43.771046
+    lon: -79.507286
+    imageURL: http://www.miskatonic.org/images/ar/sophie-100x75.jpg
+    biwStyle: classic
+    alt: 0
+    doNotIndex: 0
+    showSmallBiw: 1
+    showBiwOnClick: 1
+    poiType: geo
+    icon:
+      label: Stong Pond
+      url: http://www.miskatonic.org/images/ar/sophie-100x75.jpg
+      type: 0
+    actions: 
+      - label: Read about Stong Pond
+        uri: http://alternativecampustour.info.yorku.ca/sites/stong-pond/
+        autoTriggerRange: ""
+        autoTriggerOnly: ""
+        contentType: application/vnd.layar.internal
+        method: GET
+        activityType: 1
+        params: ""
+        closeBiw: 0
+        showActivity: 1
+        activityMessage: ""
+        autoTrigger: false
+      - label: Hear about Stong Pond
+        uri: http://www.miskatonic.org/images/ar/sophie-short-audio-clip.mp3
+        autoTriggerRange: 15
+        autoTriggerOnly: ""
+        contentType: audio/mpeg
+        method: GET
+        activityType: 2
+        params: ""
+        closeBiw: 0
+        showActivity: 1
+        activityMessage: ""
+        autoTrigger: true

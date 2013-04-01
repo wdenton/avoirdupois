@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://earth.google.com/kml/2.2">
+<Document>
+  <name>York University Alternative Campus Tour</name>
+  <description><![CDATA[York University]]></description>
+  <Style id="style7">
+    <IconStyle>
+      <Icon>
+        <href>https://maps.gstatic.com/mapfiles/ms2/micons/blue-dot.png</href>
+      </Icon>
+    </IconStyle>
+  </Style>
+  <Style id="style4">
+    <IconStyle>
+      <Icon>
+        <href>http://maps.gstatic.com/mapfiles/ms2/micons/blue-dot.png</href>
+      </Icon>
+    </IconStyle>
+  </Style>
+  <Style id="style3">
+    <IconStyle>
+      <Icon>
+        <href>https://maps.gstatic.com/mapfiles/ms2/micons/blue-dot.png</href>
+      </Icon>
+    </IconStyle>
+  </Style>
+  <Style id="style6">
+    <IconStyle>
+      <Icon>
+        <href>http://maps.gstatic.com/mapfiles/ms2/micons/blue-dot.png</href>
+      </Icon>
+    </IconStyle>
+  </Style>
+  <Style id="style1">
+    <IconStyle>
+      <Icon>
+        <href>http://maps.gstatic.com/mapfiles/ms2/micons/blue-dot.png</href>
+      </Icon>
+    </IconStyle>
+  </Style>
+  <Style id="style8">
+    <IconStyle>
+      <Icon>
+        <href>http://maps.gstatic.com/mapfiles/ms2/micons/blue-dot.png</href>
+      </Icon>
+    </IconStyle>
+  </Style>
+  <Style id="style5">
+    <IconStyle>
+      <Icon>
+        <href>http://maps.gstatic.com/mapfiles/ms2/micons/blue-dot.png</href>
+      </Icon>
+    </IconStyle>
+  </Style>
+  <Style id="style2">
+    <LineStyle>
+      <color>73FF0000</color>
+      <width>5</width>
+    </LineStyle>
+  </Style>
+  <Placemark>
+    <name>Start and finish: Fountain at the Harry W. Arthurs Common</name>
+    <description><![CDATA[]]></description>
+    <styleUrl>#style7</styleUrl>
+    <Point>
+      <coordinates>-79.502884,43.773193,0.000000</coordinates>
+    </Point>
+  </Placemark>
+  <Placemark>
+    <name>1. Vari Hall</name>
+    <description><![CDATA[<div dir="ltr">Something about Vari ... insert picture.<br>&nbsp;</div>]]></description>
+    <styleUrl>#style4</styleUrl>
+    <Point>
+      <coordinates>-79.503571,43.773052,0.000000</coordinates>
+    </Point>
+  </Placemark>
+  <Placemark>
+    <name>2. Student Centre</name>
+    <description><![CDATA[]]></description>
+    <styleUrl>#style3</styleUrl>
+    <Point>
+      <coordinates>-79.503075,43.773788,0.000000</coordinates>
+    </Point>
+  </Placemark>
+  <Placemark>
+    <name>3. Michael Boyer Woodlot</name>
+    <description><![CDATA[]]></description>
+    <styleUrl>#style6</styleUrl>
+    <Point>
+      <coordinates>-79.504700,43.775337,0.000000</coordinates>
+    </Point>
+  </Placemark>
+  <Placemark>
+    <name>4. Scott Library</name>
+    <description><![CDATA[]]></description>
+    <styleUrl>#style1</styleUrl>
+    <Point>
+      <coordinates>-79.505569,43.772434,0.000000</coordinates>
+    </Point>
+  </Placemark>
+  <Placemark>
+    <name>5. HNES Native Species Garden</name>
+    <description><![CDATA[]]></description>
+    <styleUrl>#style8</styleUrl>
+    <Point>
+      <coordinates>-79.504814,43.771435,0.000000</coordinates>
+    </Point>
+  </Placemark>
+  <Placemark>
+    <name>6. Stong Pond</name>
+    <description><![CDATA[]]></description>
+    <styleUrl>#style5</styleUrl>
+    <Point>
+      <coordinates>-79.507286,43.771046,0.000000</coordinates>
+    </Point>
+  </Placemark>
+  <Placemark>
+    <name>Path through the sites</name>
+    <description><![CDATA[]]></description>
+    <styleUrl>#style2</styleUrl>
+    <LineString>
+      <tessellate>1</tessellate>
+      <coordinates>
+        -79.502930,43.773186,0.000000
+        -79.503548,43.773029,0.000000
+        -79.503090,43.773773,0.000000
+        -79.504684,43.775337,0.000000
+        -79.505501,43.772419,0.000000
+        -79.504829,43.771404,0.000000
+        -79.506920,43.771294,0.000000
+        -79.503014,43.773094,0.000000
+        -79.503036,43.773067,0.000000
+        -79.503044,43.773045,0.000000
+        -79.503014,43.773052,0.000000
+      </coordinates>
+    </LineString>
+  </Placemark>
+</Document>
+</kml>

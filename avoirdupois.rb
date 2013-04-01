@@ -259,7 +259,6 @@ end
 
 response = {
   "layer"           => @layer.name,
-  "biwStyle"        => @layer.biwStyle,
   "showMessage"     => @layer.showMessage # + " (#{ENV['ENV']})",
   "refreshDistance" => @layer.refreshDistance,
   "refreshInterval" => @layer.refreshInterval,
