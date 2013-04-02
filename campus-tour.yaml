@@ -1,11 +1,11 @@
 # Alternative Campus Tour
 pois:
   - title: Vari Hall
-    description: I am standing in front of a yellow-bricked cylindrical-shaped building with a shiny copper roof in the centre and two lower rectangular structures extending from its sides.
-    footnote: As told by Anders Sandberg.
+    description: "I am standing in front of a yellow-bricked cylindrical-shaped building with a shiny copper roof in the centre and two lower rectangular structures extending from its sides."
+    footnote: As told by L. Anders Sandberg.
     lat: 43.773052
     lon: -79.503571
-    imageURL: http://alternativecampustour.info.yorku.ca/files/2013/04/ar-layar-logo-110x43.png
+    imageURL: http://alternativecampustour.info.yorku.ca/files/2013/04/ar-vari-hall-icon-110x110.jpg
     biwStyle: classic
     alt: 0
     doNotIndex: 0
@@ -14,7 +14,7 @@ pois:
     poiType: geo
     icon:
       label: Vari Hall
-      url: http://laertes.herokuapp.com/icons/laertes-red-square.png
+      url: http://alternativecampustour.info.yorku.ca/files/2013/04/ar-vari-hall-icon-110x110.jpg
       type: 0
     actions: 
       - label: Read about Vari Hall
@@ -34,7 +34,7 @@ pois:
     footnote: As told by Jay Pitter.
     lat: 43.773788
     lon: -79.503075
-    imageURL: http://alternativecampustour.info.yorku.ca/files/2013/04/ar-layar-logo-110x43.png
+    imageURL: http://laertes.herokuapp.com/icons/laertes-red-square.png
     biwStyle: classic
     alt: 0
     doNotIndex: 0
@@ -63,7 +63,7 @@ pois:
     footnote: As told by Adrina Bardekjian.
     lat: 43.775337
     lon: -79.504700
-    imageURL: http://alternativecampustour.info.yorku.ca/files/2013/04/ar-layar-logo-110x43.png
+    imageURL: http://alternativecampustour.info.yorku.ca/files/2013/04/ar-boyer-icon-110x110.png
     biwStyle: classic
     alt: 0
     doNotIndex: 0
@@ -92,7 +92,7 @@ pois:
     footnote: As told by Dana Craig.
     lat: 43.772434
     lon: -79.505569
-    imageURL: http://alternativecampustour.info.yorku.ca/files/2013/04/ar-layar-logo-110x43.png
+    imageURL: http://alternativecampustour.info.yorku.ca/files/2013/04/ar-scott-icon-110x110.jpg
     biwStyle: classic
     alt: 0
     doNotIndex: 0
@@ -121,7 +121,7 @@ pois:
     footnote: As told by Michael Classens.
     lat: 43.771435
     lon: -79.504814
-    imageURL: http://alternativecampustour.info.yorku.ca/files/2013/04/ar-layar-logo-110x43.png
+    imageURL: http://alternativecampustour.info.yorku.ca/files/2013/04/ar-hnes-garden-icon-110x110.jpg
     biwStyle: classic
     alt: 0
     doNotIndex: 0
@@ -130,7 +130,7 @@ pois:
     poiType: geo
     icon:
       label: HNES Native Species Garden
-      url: http://laertes.herokuapp.com/icons/laertes-red-square.png
+      url: http://alternativecampustour.info.yorku.ca/files/2013/04/ar-hnes-garden-icon-110x110.jpg
       type: 0
     actions: 
       - label: Read about the Native Species Garden
@@ -150,7 +150,7 @@ pois:
     footnote: As told by Anders Sandberg.
     lat: 43.771046
     lon: -79.507286
-    imageURL: http://alternativecampustour.info.yorku.ca/files/2013/04/ar-layar-logo-110x43.png
+    imageURL: http://laertes.herokuapp.com/icons/laertes-red-square.png
     biwStyle: classic
     alt: 0
     doNotIndex: 0
