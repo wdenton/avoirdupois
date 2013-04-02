@@ -20,7 +20,7 @@ end
 
 option_value = 1
 
-l = Layer.find_or_create_by_name(:name => "campustour",
+l = Layer.find_or_create_by_name(:name => "alternativecampustour",
                              :refreshInterval => 300,
                              :refreshDistance => 100,
                              :fullRefresh => true,
