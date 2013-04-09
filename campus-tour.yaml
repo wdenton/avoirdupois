@@ -1,7 +1,7 @@
 # Alternative Campus Tour
 pois:
   - title: Vari Hall
-    description: "I am standing in front of a yellow-bricked cylindrical-shaped building with a shiny copper roof in the centre and two lower rectangular structures extending from its sides."
+    description: Adorned with yellow brick and two lower rectangular structures extending from its sides ...
     footnote: As told by L. Anders Sandberg.
     lat: 43.773052
     lon: -79.503571
@@ -29,37 +29,8 @@ pois:
         showActivity: 1
         activityMessage: ""
         autoTrigger: false
-  - title: Student Centre
-    description: Description.
-    footnote: As told by Jay Pitter.
-    lat: 43.773788
-    lon: -79.503075
-    imageURL: http://laertes.herokuapp.com/icons/laertes-red-square.png
-    biwStyle: classic
-    alt: 0
-    doNotIndex: 0
-    showSmallBiw: 1
-    showBiwOnClick: 1
-    poiType: geo
-    icon:
-      label: Student Centre
-      url: http://laertes.herokuapp.com/icons/laertes-red-square.png
-      type: 0
-    actions: 
-      - label: Read about the Student Centre
-        uri: http://alternativecampustour.info.yorku.ca/sites/student-centre/
-        autoTriggerRange: ""
-        autoTriggerOnly: ""
-        contentType: application/vnd.layar.internal
-        method: GET
-        activityType: 1
-        params: ""
-        closeBiw: 0
-        showActivity: 1
-        activityMessage: ""
-        autoTrigger: false
   - title: Michael G. Boyer Woodlot
-    description: "First Nations peoples’ fires burnt the forest now known as the Michael Boyer Woodlot for centuries."
+    description: First Nations peoples’ fires burnt the forest now known as the Michael Boyer Woodlot for centuries.
     footnote: As told by Adrina Bardekjian.
     lat: 43.775337
     lon: -79.504700
@@ -104,8 +75,8 @@ pois:
       url: http://alternativecampustour.info.yorku.ca/files/2013/04/ar-scott-icon-110x110.jpg
       type: 0
     actions: 
-      - label: Read about 
-        uri: http://alternativecampustour.info.yorku.ca/sites/
+      - label: Read about Scott Library
+        uri: http://alternativecampustour.info.yorku.ca/sites/scott-library/
         autoTriggerRange: ""
         autoTriggerOnly: ""
         contentType: application/vnd.layar.internal
@@ -117,7 +88,7 @@ pois:
         activityMessage: ""
         autoTrigger: false
   - title: HNES Native Species Garden
-    description: Description.
+    description: You might call the HNES Native Species Garden a campus naturalization project.
     footnote: As told by Michael Classens.
     lat: 43.771435
     lon: -79.504814
@@ -134,7 +105,7 @@ pois:
       type: 0
     actions: 
       - label: Read about the Native Species Garden
-        uri: http://alternativecampustour.info.yorku.ca/sites/
+        uri: http://alternativecampustour.info.yorku.ca/sites/hnes-garden/
         autoTriggerRange: ""
         autoTriggerOnly: ""
         contentType: application/vnd.layar.internal
@@ -146,11 +117,11 @@ pois:
         activityMessage: ""
         autoTrigger: false
   - title: Stong Pond
-    description: Description.
-    footnote: As told by Anders Sandberg.
+    description: On August 20, 2005, the day after a major hurricane hit and flooded York University and its surrounding community,
+    footnote: As told by L. Anders Sandberg.
     lat: 43.771046
     lon: -79.507286
-    imageURL: http://laertes.herokuapp.com/icons/laertes-red-square.png
+    imageURL: http://alternativecampustour.info.yorku.ca/files/2012/11/yorku-oct-2007-020-150x150.jpg
     biwStyle: classic
     alt: 0
     doNotIndex: 0
@@ -159,7 +130,7 @@ pois:
     poiType: geo
     icon:
       label: Stong Pond
-      url: http://laertes.herokuapp.com/icons/laertes-red-square.png
+      url: http://alternativecampustour.info.yorku.ca/files/2012/11/yorku-oct-2007-020-150x150.jpg
       type: 0
     actions: 
       - label: Read about Stong Pond
