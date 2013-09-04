@@ -15,11 +15,17 @@
 # You should have received a copy of the GNU General Public License
 # along with Avoirdupois.  If not, see <http://www.gnu.org/licenses/>.
 #
-# Copyright 2012 William Denton
+# Copyright 2012--2013 William Denton
 
-require 'cgi'
+# http://stackoverflow.com/questions/777724/whats-the-best-way-to-talk-to-a-database-while-using-sinatra/786958#786958
 
 require 'rubygems'
+require 'bundler/setup'
+
+require 'sinatra'
+require 'nokogiri'
+require 'open-uri'
+
 require 'active_record'
 require 'mysql2'
 
