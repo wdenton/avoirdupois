@@ -1,4 +1,9 @@
-source "http://rubygems.org"
+source "https://rubygems.org"
 
-gem "activerecord", "~> 3.2.10"
+gem "sinatra"
 gem "mysql2"
+gem "nokogiri"
+
+group :test do
+  gem 'rspec'
+end

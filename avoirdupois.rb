@@ -26,8 +26,10 @@ require 'sinatra'
 require 'nokogiri'
 require 'open-uri'
 
-require 'active_record'
+#require 'active_record'
 require 'mysql2'
+
+# Sinatra template app: https://github.com/mikker/my_way
 
 dbconfig = YAML::load(File.open('config/database.yml'))[ENV['ENV'] ? ENV['ENV'] : 'development']
 ActiveRecord::Base.establish_connection(dbconfig)
