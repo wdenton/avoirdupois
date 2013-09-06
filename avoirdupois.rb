@@ -15,7 +15,7 @@
 # You should have received a copy of the GNU General Public License
 # along with Avoirdupois.  If not, see <http://www.gnu.org/licenses/>.
 #
-# Copyright 2012--2013 William Denton
+# Copyright 2012, 2013 William Denton
 
 # http://stackoverflow.com/questions/777724/whats-the-best-way-to-talk-to-a-database-while-using-sinatra/786958#786958
 
@@ -23,11 +23,13 @@ require 'rubygems'
 require 'bundler/setup'
 
 require 'sinatra'
-require 'nokogiri'
-require 'open-uri'
+# require 'nokogiri'
+# require 'open-uri'
+
+require 'data_mapper'
 
 #require 'active_record'
-require 'mysql2'
+# require 'mysql2'
 
 # Sinatra template app: https://github.com/mikker/my_way
 
@@ -61,9 +63,6 @@ Dir.glob('./app/models/*.rb').each { |r| require r }
 #
 # Optional but important (what if no radius is specified?)
 # radius
-
-cgi = CGI.new
-params = cgi.params
 
 # Error handling.
 # Status 0 indicates success. Change to number in range 20-29 if there's a problem.
