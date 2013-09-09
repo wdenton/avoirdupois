@@ -26,10 +26,10 @@ require 'sinatra'
 # require 'nokogiri'
 # require 'open-uri'
 
-require 'data_mapper'
+# require 'data_mapper'
 
-#require 'active_record'
-# require 'mysql2'
+require 'active_record'
+require 'mysql2'
 
 # Sinatra template app: https://github.com/mikker/my_way
 
@@ -64,22 +64,29 @@ Dir.glob('./app/models/*.rb').each { |r| require r }
 # Optional but important (what if no radius is specified?)
 # radius
 
-# Error handling.
-# Status 0 indicates success. Change to number in range 20-29 if there's a problem.
-errorcode = 0
-errorstring = "ok"
-
-@layer = Layer.find_by_name(params["layerName"][0])
-
-# Exit cleanly right away if the requested layer isn't known
-if @layer.nil?
-  response = {
-    "errorCode"   => 20,
-    "errorString" => "No such layer " + params["layerName"][0]
-  }
-  puts response.to_json
-  exit
+before do
+  # Make this the default
+  content_type 'application/json'
 end
+
+get "/" do
+
+  # Error handling.
+  # Status 0 indicates success. Change to number in range 20-29 if there's a problem.
+  errorcode = 0
+  errorstring = "ok"
+
+  @layer = Layer.find_by_name(params[:layerName])
+
+  # Exit cleanly right away if the requested layer isn't known
+  if @layer.nil?
+    response = {
+      "errorCode"   => 20,
+      "errorString" => "No such layer " + params["layerName"][0]
+    }
+    puts response.to_json
+    exit
+  end
 
 latitude  = params["lat"][0].to_f
 longitude = params["lon"][0].to_f
@@ -287,3 +294,5 @@ end
 puts "Content-type: application/json"
 puts
 puts response.to_json
+
+end
