@@ -1,4 +1,10 @@
 # Alternative Campus Tour
+layer_name: alternativecampustour
+showMessage: The Alternative Campus Tour at York University.
+refreshInterval: 300
+refreshDistance: 100
+fullRefresh: true
+biwStyle: "classic"
 pois:
   - title: Vari Hall
     description: Adorned with yellow brick and two lower rectangular structures extending from its sides ...

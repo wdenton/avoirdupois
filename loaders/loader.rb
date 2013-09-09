@@ -4,12 +4,18 @@ require 'rubygems'
 require 'active_record'
 require 'mysql2'
 
-dbconfig = YAML::load(File.open('config/database.yml'))[ENV['ENV'] ? ENV['ENV'] : 'development']
+poi_file = ARGV[0]
+if poi_file.nil?
+  puts "Please specify a YAML file containing POI data"
+  exit
+end
+
+directory = File.dirname(__FILE__)
+
+dbconfig = YAML::load(File.open("#{directory}/../config/database.yml"))[ENV['ENV'] ? ENV['ENV'] : 'development']
 ActiveRecord::Base.establish_connection(dbconfig)
 
-Dir.glob('./app/models/*.rb').each { |r| require r }
-
-poi_file = "campus-tour.yaml"
+Dir.glob("#{directory}/../app/models/*.rb").each { |r| require r }
 
 begin
   config = YAML.load_file(poi_file)
@@ -20,13 +26,14 @@ end
 
 option_value = 1
 
-l = Layer.find_or_create_by_name(:name => "alternativecampustour",
-                             :refreshInterval => 300,
-                             :refreshDistance => 100,
-                             :fullRefresh => true,
-                             :showMessage => "The Alternative Campus Tour at York University.",
-                             :biwStyle => "classic",
-                             )
+#l = Layer.find_or_create_by_name(:name => layer_name,
+l = Layer.find_or_create_by(name: config['layer_name'],
+  :refreshInterval => config["refreshInterval"],
+  :refreshDistance => config["refreshDistance"],
+  :fullRefresh => config["fullRefresh"],
+  :showMessage => config["showMessage"],
+  :biwStyle => config["biwStyle"],
+  )
 
 if config['pois']
   config['pois'].each do |p|
