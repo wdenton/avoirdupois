@@ -1,4 +1,4 @@
-layer_name: sample
+layer_name: samplewithcheckboxes
 showMessage: This is a sample layer in Layar.
 refreshInterval: 300
 refreshDistance: 100
@@ -8,6 +8,8 @@ pois:
   - title: Queen's Park
     description: An urban park, and home to the Ontario Legislative Building.
     footnote: Footnote here.
+    checkbox:
+      - park
     lat: 43.66457
     lon: -79.39258
     imageURL: https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Pink_Palace_Toronto_2010.jpg/220px-Pink_Palace_Toronto_2010.jpg
@@ -37,6 +39,8 @@ pois:
   - title: Royal Ontario Museum
     description: A major museum for natural history and world culture.
     footnote: Lots of dinosaurs, too.
+    checkbox:
+      - museum
     lat: 43.66822
     lon: -79.39518
     imageURL: http://www.miskatonic.org/ar/110x110-transparent-white-border.png
