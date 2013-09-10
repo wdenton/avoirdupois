@@ -10,12 +10,12 @@ if poi_file.nil?
   exit
 end
 
-directory = File.dirname(__FILE__)
+this_directory = File.dirname(__FILE__)
 
-dbconfig = YAML::load(File.open("#{directory}/../config/database.yml"))[ENV['ENV'] ? ENV['ENV'] : 'development']
+dbconfig = YAML::load(File.open("#{this_directory}/../config/database.yml"))[ENV['ENV'] ? ENV['ENV'] : 'development']
 ActiveRecord::Base.establish_connection(dbconfig)
 
-Dir.glob("#{directory}/../app/models/*.rb").each { |r| require r }
+Dir.glob("#{this_directory}/../app/models/*.rb").each { |r| require r }
 
 begin
   config = YAML.load_file(poi_file)

@@ -10,12 +10,12 @@ if layer.nil?
   exit
 end
 
-script_directory = File.dirname(__FILE__)
+this_directory = File.dirname(__FILE__)
 
-dbconfig = YAML::load(File.open("#{script_directory}/../config/database.yml"))[ENV['ENV'] ? ENV['ENV'] : 'development']
+dbconfig = YAML::load(File.open("#{this_directory}/../config/database.yml"))[ENV['ENV'] ? ENV['ENV'] : 'development']
 ActiveRecord::Base.establish_connection(dbconfig)
 
-Dir.glob("#{script_directory}/../app/models/*.rb").each { |r| require r }
+Dir.glob("#{this_directory}/../app/models/*.rb").each { |r| require r }
 
 layer_to_drop = Layer.find_by name: layer
 
