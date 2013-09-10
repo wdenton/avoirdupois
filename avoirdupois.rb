@@ -318,4 +318,9 @@ get "/" do
   response.to_json
 
 end
+
+get "/*" do
+  content_type "text/plain"
+  "You need to supply parameters to find POIs for Layar.  See https://github.com/wdenton/avoirdupois"
+end
   
