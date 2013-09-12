@@ -3,9 +3,6 @@
 require 'open-uri'
 require 'json'
 
-# Keele: 
-# Glendon: 
-
 placemark_files = [
   "http://www.yorku.ca/web/maps/kml/all_placemarks.js",
   "http://www.yorku.ca/web/maps/kml/glendon_placemarks.js"

@@ -8,3 +8,7 @@ In theory it would be nice to be able to take the JSON data and convert it all i
 
 The script may perhaps be useful in similar cases where data will be munged, turned into Avoirdupois POIS and shoved directly into the database.
 
+## GeoJSON files
+
+The GeoJSON conversion I did just because I wanted to see how the placemarks looked in GeoJSON and how the GitHub mapping rendered them.  As expected, it looks nice.  Maybe York will move to GeoJSON as a file format for its maps.
+
