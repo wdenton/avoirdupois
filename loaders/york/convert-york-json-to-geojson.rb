@@ -46,5 +46,10 @@ placemark_files.each do |url|
 
 end
 
-puts features.to_json
+output = { 
+  "type"     => "FeatureCollection",
+  "features" => features
+}
+
+puts output.to_json
 
