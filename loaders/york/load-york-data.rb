@@ -33,6 +33,12 @@ Dir.glob("#{this_directory}/../../app/models/*.rb").each { |r| require r }
 
 supplemental_file = "york-supplemental.yaml"
 
+# Icons and images
+parking_icon_url      = "http://avoirdupois.miskatonic.org/icons/yorkuniversitytoronto/york-ciw-parking-110px.png" # "Parking"" in a white circle
+parking_poi_image_url = parking_icon_url # Use it in BIW bar, too (it will be scaled down)
+york_icon_url         = "http://avoirdupois.miskatonic.org/icons/yorkuniversitytoronto/york-ciw-110x110.png" # York social media logo (square)
+york_poi_image_url    = "http://www.yorku.ca/web/css/yeb11yorklogo.gif" # Standard York logo
+
 # TODO: Load this in live (or accept as option if local?)
 # Keele: http://www.yorku.ca/web/maps/kml/all_placemarks.js
 # Glendon: http://www.yorku.ca/web/maps/kml/glendon_placemarks.js
@@ -120,18 +126,18 @@ placemark_files.each do |placemark_file|
       # If it isn't there, use the standard York logo for the icon in the bar,
       # and further, if the location happens to be a parking lot, use a special parking icon.
       if placemark["category"].any? {|c| c.match(/parking/i)}
-        icon.url = "http://www.miskatonic.org/ar/york-ciw-parking-110px.png" # "Parking" in a white circle
-        poi.imageURL = "http://www.miskatonic.org/ar/york-ciw-parking-110px.png" # Use it in BIW bar, too (it will be scaled down)
+        icon.url = parking_icon_url
+        poi.imageURL = parking_poi_image_url
       else
-        icon.url = "http://www.miskatonic.org/ar/york-ciw-110x110.png" # York social media logo (square)
-        poi.imageURL = "http://www.yorku.ca/web/css/yeb11yorklogo.gif" # Standard York logo
+        icon.url = york_icon_url
+        poi.imageURL = york_poi_image_url
         STDERR.puts "  default icon"
       end
     else
-      poi.imageURL = grabbedimage[1]
+      poi.imageURL = grabbedimage[1].gsub(/\\\//, "/") # Turn http:\/\/foo\/bar into http://foo/bar
       icon.url = poi.imageURL
     end
-    # STDERR.puts "  icon: #{icon["url"]}"
+    STDERR.puts "  icon: #{icon["url"]}"
     poi.icon = icon
 
     poi.biwStyle = "collapsed" # "classic" or "collapsed"

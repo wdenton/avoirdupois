@@ -19,6 +19,15 @@
 
 # http://stackoverflow.com/questions/777724/whats-the-best-way-to-talk-to-a-database-while-using-sinatra/786958#786958
 
+# If I moved to DataMapper:
+# http://stackoverflow.com/questions/13522912/how-to-add-a-method-in-datamapper-so-i-can-find-all-points-within-x-distance-of
+#
+# And http://stackoverflow.com/questions/14740195/destroying-dependents-in-datamapper
+
+# my_way
+# Sample Sinatra app
+# https://github.com/mikker/my_way
+
 require 'rubygems'
 require 'bundler/setup'
 
