@@ -137,7 +137,7 @@ placemark_files.each do |placemark_file|
       poi.imageURL = grabbedimage[1].gsub(/\\\//, "/") # Turn http:\/\/foo\/bar into http://foo/bar
       icon.url = poi.imageURL
     end
-    STDERR.puts "  icon: #{icon["url"]}"
+    # STDERR.puts "  icon: #{icon["url"]}"
     poi.icon = icon
 
     poi.biwStyle = "collapsed" # "classic" or "collapsed"
