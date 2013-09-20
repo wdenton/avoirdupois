@@ -15,7 +15,7 @@
 # You should have received a copy of the GNU General Public License
 # along with Avoirdupois.  If not, see <http://www.gnu.org/licenses/>.
 #
-# Copyright 2012 William Denton
+# Copyright 2012, 2013 William Denton
 
 require 'rubygems'
 require 'active_record'

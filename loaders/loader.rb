@@ -155,13 +155,14 @@ poi_files.each do |poi_file|
       l.pois << poi
     end
   end
-  
-  puts "Checkbox configuration for Layar:"
-  Checkbox.all.each do |c|
-    puts "#{c.option_value} | #{c.label}"
-  end
 
-  puts
+  checkboxes = Checkbox.all
+  if checkboxes.size > 0
+    puts "Checkbox configuration for Layar:"
+    checkboxes.each do |c|
+      puts "#{c.option_value} | #{c.label}"
+    end
+  end
   
 end
 

@@ -23,10 +23,30 @@ All of these installation commands are meant for Debian/Ubuntu; adapt them to yo
 
 ## Installation
 
-To install Laertes you need to get this source code by either forking this GitHub repository or downloading it directly.  Then use [Bundler](http://gembundler.com/) to first make sure all of the necessary requirements are in place and then to run the application safely.  (Note: when installing Bundler, if you're not using RVM you may need to run `sudo gem install bundler`.)  This will clone this repository and then get it running:
+### The source code
+
+To install Avoirdupois you need to get this source code by either forking this GitHub repository or downloading it directly.  Then use [Bundler](http://gembundler.com/) to first make sure all of the necessary requirements are in place and then to run the application safely.  (Note: when installing Bundler, if you're not using RVM you may need to run `sudo gem install bundler`.)  This will clone this repository and then get it running:
 
     $ git clone git@github.com:wdenton/avoirdupois.git
     $ cd avoirdupois
+    $ ls
+
+You will see all of the files
+
+### Setting up databases
+
+Before going any further you need to set up the databases Avoirdupois will use.  The configuration details are in [config/database.yml].
+
+	# cp config/database.yml.sample config/database.yml
+
+Set up at least the `layer_development` database and put the login information into the config file.  Then run:
+
+    # ./initialize.rb
+
+### Running the web service
+
+Now you can run the actual web service.
+
     $ gem install bundler
     $ bundle install
     $ bundle exec rackup config.ru
@@ -37,7 +57,7 @@ You should now see a message like this:
     [2013-01-22 10:49:56] INFO  ruby 1.9.3 (2012-04-20) [x86_64-linux]
     [2013-01-22 10:49:56] INFO  WEBrick::HTTPServer#start: pid=14347 port=9292
 
-Good! This means that the web service is running on your machine on port 9292.  You can now test it by either hitting it on the command line or in your browser with a URL like this:
+Good! This means that the web service is running on your machine on port 9292.  You can now test it by either hitting it on the command line (from another shell) or in your browser with a URL like this:
 
     $ curl "http://localhost:9292/?layerName=sample&lon=-79.4&lat=43.6&version=6.2&radius=2000"
 
@@ -48,22 +68,17 @@ You'll get an error because there is no such layer 'sample' yet:
       "errorString": "No such layer sample"
     }
 
+### Loading sample data
+
 To create the sample layer, run
 
 	$ ./loaders/loader.rb loaders/sample/sample.yaml
-
-It should respond by showing the sample data it is loading in (some points of interest in Toronto, Ontario):
-
+    Creating sample ...
     Queen's Park
       Action: Wikipedia entry
       Icon: Queen's Park
-      Checkbox: park
     Royal Ontario Museum
       Icon: Royal Ontario Museum
-      Checkbox: museum
-    Checkbox configuration for Layar:
-    1 | park
-    2 | museum
 
 Now rerun the request:
 
