@@ -35,7 +35,7 @@ You will see all of the files
 
 ### Setting up databases
 
-Before going any further you need to set up the databases Avoirdupois will use.  The configuration details are in [config/database.yml].
+Before going any further you need to set up the databases Avoirdupois will use.  The configuration details are in [config/database.yml](config/database.yml).
 
 	# cp config/database.yml.sample config/database.yml
 
@@ -120,9 +120,9 @@ That simple request is how Layar will get points of interest from Avoirdupois. L
 
 ## Loading in POIS
 
-The easiest way to create a layer and load in a set of POIs is to make a YAML file.  Aside from the sample layer there is also [loaders/campus-tour/campus-tour.yaml], a small set of six POIs for the [Alternative Campus Tour](http://alternativecampustour.info.yorku.ca/) at York University.  Copy an existing YAML file, edit the layer name and POIs, and load it in as above.  The Layar documentation explains what each field means.
+The easiest way to create a layer and load in a set of POIs is to make a YAML file.  Aside from the sample layer there is also [campus-tour.yaml](loaders/campus-tour/campus-tour.yaml), a small set of six POIs for the [Alternative Campus Tour](http://alternativecampustour.info.yorku.ca/) at York University.  Copy an existing YAML file, edit the layer name and POIs, and load it in as above.  The Layar documentation explains what each field means.
 
-Another way is to use ActiveRecord to construct POI objects and save them. This is how [loaders/york/load-york-data.rb] works to set up POIs for the view of York University's campuses.  It pulls in POIs from a few sources and constructs and saves the POI object directly, which for various reasons is easier than dumping to a YAML file and loading it. See the [loaders/york/load-york-data/README.md](README) for more.
+Another way is to use ActiveRecord to construct POI objects and save them. This is how [load-york-data.rb](loaders/york/load-york-data.rb) works to set up POIs for the view of York University's campuses.  It pulls in POIs from a few sources and constructs and saves the POI object directly, which for various reasons is easier than dumping to a YAML file and loading it. See the [README](loaders/york/load-york-data/README.md) for more.
 
 # Putting into production
 
