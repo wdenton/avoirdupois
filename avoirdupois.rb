@@ -290,7 +290,7 @@ get "/" do
 
     response = {
       "layer"           => layer.name,
-      "showMessage"     => layer.showMessage, # + " (#{ENV['ENV']})",
+      "showMessage"     => layer.showMessage, # + " (#{ENV['RACK_ENV']})",
       "refreshDistance" => layer.refreshDistance,
       "refreshInterval" => layer.refreshInterval,
       "hotspots"        => hotspots,

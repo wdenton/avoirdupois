@@ -31,7 +31,7 @@ end
 
 this_directory = File.dirname(__FILE__)
 
-dbconfig = YAML::load(File.open("#{this_directory}/../config/database.yml"))[ENV['ENV'] ? ENV['ENV'] : 'development']
+dbconfig = YAML::load(File.open("#{this_directory}/../config/database.yml"))[ENV['RACK_ENV'] ? ENV['RACK_ENV'] : 'development']
 ActiveRecord::Base.establish_connection(dbconfig)
 
 Dir.glob("#{this_directory}/../app/models/*.rb").each { |r| require r }
