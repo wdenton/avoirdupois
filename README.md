@@ -82,7 +82,7 @@ To create the sample layer, run
 
 Now rerun the request:
 
-    $ curl "http://localhost:9292/?layerName=sample&lon=-79.4&lat=43.6&version=6.2&radius=2000"
+    $ curl "http://localhost:9292/?layerName=sample&lon=-79.4&lat=43.66&version=6.2&radius=2000"
 
 It should respond with JSON output (as defined in Layar's [GetPOIs Response](https://www.layar.com/documentation/browser/api/getpois-response/)). As long as there is some JSON, even if it's not much, that's good.  If there's an error, look at your console to see what it might be.
 
@@ -110,8 +110,20 @@ If you installed `jsonlint` then this will make the output more readable:
           },
     [ ... and a lot more ... ]
 
+That simple request is how Layar will get points of interest from Avoirdupois. Layar passes in more variables, but the core are:
+
+* layerName: the name of the layer
+* lon: longitude of user
+* lat: latiude of user
+* version: version of Layar client app
+* radius: how far (in meters) to look for POIs
+
 ## Loading in POIS
 
-To be done.
+The easiest way to create a layer and load in a set of POIs is to make a YAML file.  Aside from the sample layer there is also [loaders/campus-tour/campus-tour.yaml], a small set of six POIs for the [Alternative Campus Tour](http://alternativecampustour.info.yorku.ca/) at York University.  Copy an existing YAML file, edit the layer name and POIs, and load it in as above.  The Layar documentation explains what each field means.
+
+Another way is to use ActiveRecord to construct POI objects and save them. This is how [loaders/york/load-york-data.rb] works to set up POIs for the view of York University's campuses.  It pulls in POIs from a few sources and constructs and saves the POI object directly, which for various reasons is easier than dumping to a YAML file and loading it. See the [loaders/york/load-york-data/README.md](README) for more.
+
+# Putting into production
 
 
