@@ -42,7 +42,7 @@ require 'mysql2'
 
 # Sinatra template app: https://github.com/mikker/my_way
 
-dbconfig = YAML::load(File.open('config/database.yml'))[ENV['ENV'] ? ENV['ENV'] : 'development']
+dbconfig = YAML::load(File.open('config/database.yml'))[ENV['RACK_ENV'] ? ENV['RACK_ENV'] : 'development']
 ActiveRecord::Base.establish_connection(dbconfig)
 
 Dir.glob('./app/models/*.rb').each { |r| require r }

@@ -126,7 +126,22 @@ Another way is to use ActiveRecord to construct POI objects and save them. This 
 
 # Putting into production
 
-Avoirdupois uses [Rack](http://rack.github.io/), so it can be deployed with [Phusion Passenger](https://www.phusionpassenger.com/) or however else you like to deploy such applications.
+Avoirdupois uses [Rack](http://rack.github.io/), so it can be deployed with [Phusion Passenger](https://www.phusionpassenger.com/) or however else you like to deploy such applications.  I do it with this:
+
+    <VirtualHost *:80>
+        ServerName avoirdupois.miskatonic.org
+        DocumentRoot /var/www/avoirdupois.miskatonic.org/avoirdupois/public
+        SetEnv RACK_ENV production
+        <Directory /var/www/avoirdupois.miskatonic.org/avoirdupois>
+            Allow from all
+            Options -MultiViews
+        </Directory>
+        ErrorLog ${APACHE_LOG_DIR}/avoirdupois.error.log
+        LogLevel debug
+        CustomLog ${APACHE_LOG_DIR}/avoirdupois.access.log combined
+    </VirtualHost>
+    
+Then, as before:
 
 * Set up database (layer_production)
 * Clone code as above
@@ -134,9 +149,9 @@ Avoirdupois uses [Rack](http://rack.github.io/), so it can be deployed with [Phu
 * Load layers
 
     $ cd loaders
-	$ ENV=production ./loader.rb campus-tour/campus-tour.yaml
+	$ RACK\_ENV=production ./loader.rb campus-tour/campus-tour.yaml
     $ cd york
-	$ ENV=production ./load-york-data.rb
+	$ RACK\_ENV=production ./load-york-data.rb
 
 TO DO: Explain about loading data.
 
