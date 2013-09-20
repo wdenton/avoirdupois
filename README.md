@@ -126,4 +126,18 @@ Another way is to use ActiveRecord to construct POI objects and save them. This 
 
 # Putting into production
 
+Avoirdupois uses [Rack](http://rack.github.io/), so it can be deployed with [Phusion Passenger](https://www.phusionpassenger.com/) or however else you like to deploy such applications.
+
+* Set up database (layer_production)
+* Clone code as above
+* Initialize
+* Load layers
+
+    $ cd loaders
+	$ ENV=production ./loader.rb campus-tour/campus-tour.yaml
+    $ cd york
+	$ ENV=production ./load-york-data.rb
+
+TO DO: Explain about loading data.
+
 
