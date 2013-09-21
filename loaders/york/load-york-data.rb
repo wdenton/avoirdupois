@@ -164,23 +164,26 @@ placemark_files.each do |placemark_file|
       poi.actions << action
     end
 
-    if placemark["category"].any?
-      placemark["category"].each do |c|
-        STDERR.puts "  Category: #{c}"
-        cat = Checkbox.find_by_label(c)
-        if cat.nil?
-          cat = Checkbox.create(:label => c, :option_value => option_value)
-          option_value += 1
-        end
-        poi.checkboxes << cat
-      end
-    end
+    # Don't load categories and checkboxes ... for now
+    # TODO: Put these in, if it's worth it
+    #
+    # if placemark["category"].any?
+    #   placemark["category"].each do |c|
+    #     STDERR.puts "  Category: #{c}"
+    #     cat = Checkbox.find_by_label(c)
+    #     if cat.nil?
+    #       cat = Checkbox.create(:label => c, :option_value => option_value)
+    #       option_value += 1
+    #     end
+    #     poi.checkboxes << cat
+    #   end
+    # end
 
     l.pois << poi
   end
 end
 
-puts "Checkbox configuration for Layar:"
-Checkbox.all.each do |c|
-  puts "#{c.option_value} | #{c.label}"
-end
+# puts "Checkbox configuration for Layar:"
+# Checkbox.all.each do |c|
+#   puts "#{c.option_value} | #{c.label}"
+# end
