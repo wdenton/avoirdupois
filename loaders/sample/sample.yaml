@@ -19,7 +19,7 @@ pois:
     poiType: geo
     icon:
       label: Queen's Park
-      url: http://www.miskatonic.org/images/ar/sophie-100x75.jpg
+      url: http://www.miskatonic.org/ar/110x110-transparent-white-border.png
       type: 0
     actions: 
       - label: Wikipedia entry

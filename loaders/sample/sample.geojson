@@ -1,0 +1,96 @@
+{
+    "configuration": {
+	"layer_name": "sample",
+	"showMessage": "This is a sample layer in Layar.",
+	"refreshInterval": 300,
+	"refreshDistance": 100,
+	"fullRefresh": true,
+	"biwStyle": "classic"      
+    },
+    "type": "FeatureCollection",
+    "features": [
+	{
+	    "type": "Feature",
+	    "properties": {
+		"title": "Queen's Park",
+		"description": "An urban park, and home to the Ontario Legislative Building.",
+		    "footnote": "Footnote here.",
+		    "imageURL": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Pink_Palace_Toronto_2010.jpg/220px-Pink_Palace_Toronto_2010.jpg",
+		"biwStyle": "classic",
+		"alt": 0,
+		"doNotIndex": 0,
+		"showSmallBiw": 1,
+		"showBiwOnClick": 1,
+		"poiType": "geo",
+		"icon": {
+		    "label": "Queen's Park",
+		    "url": "http://www.miskatonic.org/ar/110x110-transparent-white-border.png",
+		    "type": 0
+		},
+		"actions": { 
+		    "label": "Wikipedia entry",
+		    "uri": "https://en.wikipedia.org/wiki/Queen%27s_Park,_Toronto",
+		    "autoTriggerRange": "",
+		    "autoTriggerOnly": "",
+		    "contentType": "application/vnd.layar.internal",
+		    "method": "GET",
+		    "activityType": 1,
+		    "params": "",
+		    "closeBiw": 0,
+		    "showActivity": 1,
+		    "activityMessage": "",
+		    "autoTrigger": false
+		}
+	    },
+	    "geometry": {
+		"type": "Point",
+		"coordinates": [
+		    -79.39258,
+		    43.66457
+		]
+	    }
+	},
+	{
+	    "type": "Feature",
+	    "properties": {
+		"title": "Royal Ontario Museum",
+		"description": "A major museum for history and world culture.",
+		    "footnote": "Footnote here.",
+		    "imageURL": "http://www.miskatonic.org/ar/110x110-transparent-white-border.png",
+		"biwStyle": "classic",
+		"alt": 0,
+		"doNotIndex": 0,
+		"showSmallBiw": 1,
+		"showBiwOnClick": 1,
+		"poiType": "geo",
+		"icon": {
+		    "label": "Royal Ontario Museum",
+		    "url": "http://www.miskatonic.org/ar/110x110-transparent-white-border.png",
+		    "type": 0
+		},
+		"actions": { 
+		    "label": "Wikipedia entry",
+		    "uri": "https://en.wikipedia.org/wiki/Queen%27s_Park,_Toronto",
+		    "autoTriggerRange": "",
+		    "autoTriggerOnly": "",
+		    "contentType": "application/vnd.layar.internal",
+		    "method": "GET",
+		    "activityType": 1,
+		    "params": "",
+		    "closeBiw": 0,
+		    "showActivity": 1,
+		    "activityMessage": "",
+		    "autoTrigger": false
+		}
+	    },
+	    "geometry": {
+		"type": "Point",
+		"coordinates": [
+		    -79.39518,
+		    43.66822
+		]
+	    }
+	}
+
+    ]
+}
