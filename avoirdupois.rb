@@ -160,7 +160,8 @@ get "/" do
 
     if layer.has_checkboxes
       # This layer has some, so we need a more complicated query.
-      
+      logger.debug "Layer has checkboxes"
+
       # When no checkboxes are selected, return nothing with
       # "c.option_value in (NULL) "
       checkmarks = "NULL" if checkmarks.empty?

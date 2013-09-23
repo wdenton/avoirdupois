@@ -1,6 +1,6 @@
 {
     "configuration": {
-	"layer_name": "samplewithcheckboxes",
+	"layer_name": "checkboxsample",
 	"showMessage": "This is a sample layer in Layar, showing some Toronto museums, with checkboxes",
 	"refreshInterval": 300,
 	"refreshDistance": 100,
