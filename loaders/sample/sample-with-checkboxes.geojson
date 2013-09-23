@@ -1,7 +1,7 @@
 {
     "configuration": {
-	"layer_name": "sample",
-	"showMessage": "This is a sample layer in Layar, showing some Toronto museums.",
+	"layer_name": "samplewithcheckboxes",
+	"showMessage": "This is a sample layer in Layar, showing some Toronto museums, with checkboxes",
 	"refreshInterval": 300,
 	"refreshDistance": 100,
 	"fullRefresh": true,
@@ -26,6 +26,7 @@
 		    "url": "http://www.miskatonic.org/avoirdupois/110x110-transparent-white-border.png",
 		    "type": 0
 		},
+		"checkbox": ["northerly"],
 		"actions": [
 		    { 
 			"label": "Web site",
@@ -69,6 +70,7 @@
 		    "url": "http://www.miskatonic.org/avoirdupois/110x110-transparent-white-border.png",
 		    "type": 0
 		},
+		"checkbox": ["northerly"],
 		"actions": [
 		    { 
 			"label": "Web site",
@@ -111,6 +113,7 @@
 		    "url": "http://www.miskatonic.org/avoirdupois/110x110-transparent-white-border.png",
 		    "type": 0
 		},
+		"checkbox": ["northerly"],
 		"actions": [
 		    { 
 			"label": "Web site",
@@ -153,6 +156,7 @@
 		    "url": "http://www.miskatonic.org/avoirdupois/110x110-transparent-white-border.png",
 		    "type": 0
 		},
+		"checkbox": ["southerly"],
 		"actions": [
 		    { 
 			"label": "Web site",
@@ -195,6 +199,7 @@
 		    "url": "http://www.miskatonic.org/avoirdupois/110x110-transparent-white-border.png",
 		    "type": 0
 		},
+		"checkbox": ["southerly", "house"],
 		"actions": [
 		    { 
 			"label": "Web site",

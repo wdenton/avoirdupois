@@ -9,7 +9,7 @@ class Layer < ActiveRecord::Base
 
     def checkboxes
       # There must be a better way to determine if any of the POIs belong to a given layer have checkboxes.
-      checkboxes = Checkbox.find_by_sql(["select c.id from checkboxes c INNER JOIN pois p INNER JOIN checkboxes_pois cp WHERE cp.checkbox_id = c.id AND cp.poi_id = p.id AND p.layer_id = ? GROUP BY c.id", self.id])
+      checkboxes = Checkbox.find_by_sql(["select c.* from checkboxes c INNER JOIN pois p INNER JOIN checkboxes_pois cp WHERE cp.checkbox_id = c.id AND cp.poi_id = p.id AND p.layer_id = ? GROUP BY c.id", self.id])
       return checkboxes
   end
   
