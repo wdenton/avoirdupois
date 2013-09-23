@@ -21,7 +21,9 @@ require 'rubygems'
 require 'active_record'
 require 'mysql2'
 
-dbconfig = YAML::load(File.open('config/database.yml'))[ENV['RACK_ENV'] ? ENV['RACK_ENV'] : 'development']
+this_directory = File.dirname(__FILE__)
+
+dbconfig = YAML::load(File.open("#{this_directory}/config/database.yml"))[ENV['RACK_ENV'] ? ENV['RACK_ENV'] : 'development']
 ActiveRecord::Base.establish_connection(dbconfig)
 
 # Primary key columns named "id" will be created automatically,

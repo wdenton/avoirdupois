@@ -1,7 +1,7 @@
 {
     "configuration": {
-	"layer_name": "sample",
-	"showMessage": "This is a sample layer in Layar.",
+	"layer_name": "alternativecampustour",
+	"showMessage": "The Alternative Campus Tour at York University.",
 	"refreshInterval": 300,
 	"refreshDistance": 100,
 	"fullRefresh": true,
@@ -12,24 +12,24 @@
 	{
 	    "type": "Feature",
 	    "properties": {
-		"title": "Gardiner Museum",
-		"description": "Canada's national ceramics museum. 'We strive to be an inviting destination that inspires and connects people, art and ideas through clay.'",
-		    "footnote": "100 Queens' Park (intersection of Bloor St. and Avenue Rd.)",
-		    "imageURL": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/GardinerMuseum.jpg/260px-GardinerMuseum.jpg",
+		"title": "Vari Hall",
+		"description": "Adorned with yellow brick and two lower rectangular structures extending from its sides ...",
+		"footnote": "As told by L. Anders Sandberg.",
+		"imageURL": "http://alternativecampustour.info.yorku.ca/files/2013/04/ar-vari-hall-icon-110x110.jpg",
 		"biwStyle": "classic",
 		"doNotIndex": 0,
 		"showSmallBiw": 1,
 		"showBiwOnClick": 1,
 		"poiType": "geo",
 		"icon": {
-		    "label": "Gardiner Museum",
-		    "url": "http://www.miskatonic.org/ar/110x110-transparent-white-border.png",
+		    "label": "Vari Hall",
+		    "url": "http://alternativecampustour.info.yorku.ca/files/2013/04/ar-vari-hall-icon-110x110.jpg",
 		    "type": 0
 		},
 		"actions": [
 		    { 
-			"label": "Web site",
-			"uri": "http://www.gardinermuseum.on.ca/",
+			"label": "Read about Vari Hall",
+			"uri": "http://alternativecampustour.info.yorku.ca/sites/vari-hall/",
 			"autoTriggerRange": "",
 			"autoTriggerOnly": "",
 			"contentType": "application/vnd.layar.internal",
@@ -46,33 +46,32 @@
 	    "geometry": {
 		"type": "Point",
 		"coordinates": [
-		    -79.39300,
-		    43.66832,
-		    3
+		    -79.503571,
+		    43.773052
 		]
 	    }
 	},
 	{
 	    "type": "Feature",
 	    "properties": {
-		"title": "Royal Ontario Museum",
-		"description": "A major museum for history and world culture.",
-		    "footnote": "",
-		    "imageURL": "http://www.miskatonic.org/ar/110x110-transparent-white-border.png",
+		"title": "Michael G. Boyer Woodlot",
+		"description": "First Nations peoples’ fires burnt the forest now known as the Michael Boyer Woodlot for centuries.",
+		"footnote": "As told by Adrina Bardekjian.",
+		"imageURL": "http://alternativecampustour.info.yorku.ca/files/2013/04/ar-boyer-icon-110x110.png",
 		"biwStyle": "classic",
 		"doNotIndex": 0,
 		"showSmallBiw": 1,
 		"showBiwOnClick": 1,
 		"poiType": "geo",
 		"icon": {
-		    "label": "Royal Ontario Museum",
-		    "url": "http://www.miskatonic.org/ar/110x110-transparent-white-border.png",
+		    "label": "Michael G. Boyer Woodlot",
+		    "url": "http://alternativecampustour.info.yorku.ca/files/2013/04/ar-boyer-icon-110x110.png",
 		    "type": 0
 		},
 		"actions": [
 		    { 
-			"label": "Web site",
-			"uri": "http://rom.on.ca/",
+			"label": "Read about Boyer Woodlot",
+			"uri": "http://alternativecampustour.info.yorku.ca/sites/boyer-woodlot/",
 			"autoTriggerRange": "",
 			"autoTriggerOnly": "",
 			"contentType": "application/vnd.layar.internal",
@@ -89,32 +88,32 @@
 	    "geometry": {
 		"type": "Point",
 		"coordinates": [
-		    -79.39518,
-		    43.66822
+		    -79.504700,
+		    43.775337
 		]
 	    }
 	},
 	{
 	    "type": "Feature",
 	    "properties": {
-		"title": "Bata Shoe Museum",
-		"description": "The collection includes over 10,000 shoes from 4,500 years of history.",
-		    "footnote": "327 Bloor St. West",
-		    "imageURL": "http://www.miskatonic.org/ar/110x110-transparent-white-border.png",
+		"title": "Scott Library",
+		"description": "I love the library!",
+		"footnote": "As told by Dana Craig",
+		"imageURL": "http://alternativecampustour.info.yorku.ca/files/2013/04/ar-scott-icon-110x110.jpg",
 		"biwStyle": "classic",
 		"doNotIndex": 0,
 		"showSmallBiw": 1,
 		"showBiwOnClick": 1,
 		"poiType": "geo",
 		"icon": {
-		    "label": "Bata Shoe Museum",
-		    "url": "http://www.miskatonic.org/ar/110x110-transparent-white-border.png",
+		    "label": "Scott Library",
+		    "url": "http://alternativecampustour.info.yorku.ca/files/2013/04/ar-scott-icon-110x110.jpg",
 		    "type": 0
 		},
 		"actions": [
 		    { 
-			"label": "Web site",
-			"uri": "http://www.batashoemuseum.ca/",
+			"label": "Read about Scott Library",
+			"uri": "http://alternativecampustour.info.yorku.ca/sites/scott-library/",
 			"autoTriggerRange": "",
 			"autoTriggerOnly": "",
 			"contentType": "application/vnd.layar.internal",
@@ -131,32 +130,32 @@
 	    "geometry": {
 		"type": "Point",
 		"coordinates": [
-		    -79.400139,
-		    43.667278
+		    -79.505569,
+		    43.772434
 		]
 	    }
 	},
 	{
 	    "type": "Feature",
 	    "properties": {
-		"title": "Textile Museum of Canada",
-		"description": "'The TMC's permanent collection celebrates cultural diversity and includes traditional fabrics, garments, carpets and related artifacts such as beadwork and basketry.'",
-		    "footnote": "55 Centre Avenue",
-		    "imageURL": "http://www.miskatonic.org/ar/110x110-transparent-white-border.png",
+		"title": "HNES Native Species Garden",
+		"description": "You might call the HNES Native Species Garden a campus naturalization project.",
+		"footnote": "As told by Michael Classens.",
+		"imageURL": "http://alternativecampustour.info.yorku.ca/files/2013/04/ar-hnes-garden-icon-110x110.jpg",
 		"biwStyle": "classic",
 		"doNotIndex": 0,
 		"showSmallBiw": 1,
 		"showBiwOnClick": 1,
 		"poiType": "geo",
 		"icon": {
-		    "label": "Textile Museum of Canada",
-		    "url": "http://www.miskatonic.org/ar/110x110-transparent-white-border.png",
+		    "label": "HNES Native Species Garden",
+		    "url": "http://alternativecampustour.info.yorku.ca/files/2013/04/ar-hnes-garden-icon-110x110.jpg",
 		    "type": 0
 		},
 		"actions": [
 		    { 
-			"label": "Web site",
-			"uri": "http://textilemuseum.ca/",
+			"label": "Read about the Native Species Garden",
+			"uri": "http://alternativecampustour.info.yorku.ca/sites/hnes-garden/",
 			"autoTriggerRange": "",
 			"autoTriggerOnly": "",
 			"contentType": "application/vnd.layar.internal",
@@ -173,32 +172,32 @@
 	    "geometry": {
 		"type": "Point",
 		"coordinates": [
-		    -79.38686,
-		    43.65437
+		    -79.504814,
+		    43.771435
 		]
 	    }
 	},
 	{
 	    "type": "Feature",
 	    "properties": {
-		"title": "Mackenzie House",
-		"description": "The last home of William Lyon Mackenzie, leader of the 1837 Upper Canada Rebellion and later Toronto's first mayor.",
-		    "footnote": "82 Bond Street",
-		    "imageURL": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Mackenzie_House.JPG/250px-Mackenzie_House.JPG",
+		"title": "Stong Pond",
+		"description": "On August 20, 2005, the day after a major hurricane hit and flooded York University ...",
+		"footnote": "As told by L. Anders Sandberg.",
+		"imageURL": "http://alternativecampustour.info.yorku.ca/files/2012/11/yorku-oct-2007-020-150x150.jpg",
 		"biwStyle": "classic",
 		"doNotIndex": 0,
 		"showSmallBiw": 1,
 		"showBiwOnClick": 1,
 		"poiType": "geo",
 		"icon": {
-		    "label": "Mackenzie House",
-		    "url": "http://www.miskatonic.org/ar/110x110-transparent-white-border.png",
+		    "label": "Stong Pond",
+		    "url": "http://alternativecampustour.info.yorku.ca/files/2012/11/yorku-oct-2007-020-150x150.jpg",
 		    "type": 0
 		},
 		"actions": [
 		    { 
-			"label": "Web site",
-			"uri": "http://www.toronto.ca/culture/mackenzie_house.htm",
+			"label": "Read about Stong Pond",
+			"uri": "http://alternativecampustour.info.yorku.ca/sites/stong-pond/",
 			"autoTriggerRange": "",
 			"autoTriggerOnly": "",
 			"contentType": "application/vnd.layar.internal",
@@ -215,8 +214,8 @@
 	    "geometry": {
 		"type": "Point",
 		"coordinates": [
-		    -79.378291,
-		    43.655665
+		    -79.507286,
+		    43.771046
 		]
 	    }
 	}

@@ -25,7 +25,7 @@ require 'mysql2'
 
 poi_files = ARGV
 if poi_files.nil?
-  puts "Please specify one or more YAML file(s) containing POI data"
+  puts "Please specify one or more GeoJSON files containing POI data"
   exit
 end
 
@@ -39,45 +39,44 @@ Dir.glob("#{this_directory}/../app/models/*.rb").each { |r| require r }
 poi_files.each do |poi_file|
 
   begin
-    config = YAML.load_file(poi_file)
+    config = JSON.parse(File.read(poi_file))
   rescue Exception => e
     puts e
     exit 1
   end
 
-  puts "Creating #{config['layer_name']} ..."
+  puts "Creating #{config['configuration']['layer_name']} ..."
 
   option_value = 1
 
-  #l = Layer.find_or_create_by_name(:name => layer_name,
-  l = Layer.find_or_create_by(name: config['layer_name'],
-    :refreshInterval => config["refreshInterval"],
-    :refreshDistance => config["refreshDistance"],
-    :fullRefresh => config["fullRefresh"],
-    :showMessage => config["showMessage"],
-    :biwStyle => config["biwStyle"],
-    )
-
-  if config['pois']
-    config['pois'].each do |p|
-      puts p['title']
+  l = Layer.find_or_create_by(name: config['configuration']['layer_name'],
+                              :refreshInterval => config['configuration']["refreshInterval"],
+                              :refreshDistance => config['configuration']["refreshDistance"],
+                              :fullRefresh     => config['configuration']["fullRefresh"],
+                              :showMessage     => config['configuration']["showMessage"],
+                              :biwStyle        => config['configuration']["biwStyle"],
+                              )
+  
+  if config['features']
+    config['features'].each do |p|
+      puts p['properties']['title']
       poi = Poi.create(
-        :title               => p['title'],
-        :description         => p['description'],
-        :footnote            => p['footnote'],
-        :lat                 => p['lat'].to_f,
-        :lon                 => p['lon'].to_f,
-        :imageURL            => p['imageURL'],
-        :biwStyle            => p['biwStyle'] || "classic",
-        :alt                 => p['alt'] || 0,
-        :doNotIndex          => p['doNotIndex'] || 0,
-        :showSmallBiw        => p['showSmallBiw'] || true,
-        :showBiwOnClick      => p['showBiwOnClick'] || true,
-        :poiType             => p['poiType'],
+        :title               => p['properties']['title'],
+        :description         => p['properties']['description'],
+        :footnote            => p['properties']['footnote'],
+        :lat                 => p['geometry']['coordinates'][1].to_f,
+        :lon                 => p['geometry']['coordinates'][0].to_f,
+        :imageURL            => p['properties']['imageURL'],
+        :biwStyle            => p['properties']['biwStyle'] || "classic",
+        :alt                 => p['geometry']['coordinates'][2].to_f || 0,
+        :doNotIndex          => p['properties']['doNotIndex'] || 0,
+        :showSmallBiw        => p['properties']['showSmallBiw'] || true,
+        :showBiwOnClick      => p['properties']['showBiwOnClick'] || true,
+        :poiType             => p['properties']['poiType'],
         )
-      if p["actions"]
-        p["actions"].each do |a|
-          puts "  Action: " + a["label"]
+      if p['properties']["actions"]
+        p['properties']["actions"].each do |a|
+          puts "  Action: #{a['label']}"
           action = Action.create(
             :label            => a['label'],
             :uri              => a['uri'],
@@ -96,52 +95,51 @@ poi_files.each do |poi_file|
         end
       end
       
-      if p["icon"]
-        puts "  Icon: " + p["icon"]["label"]
+      if p['properties']["icon"]
+        puts "  Icon: " + p['properties']["icon"]["label"]
         poi.icon = Icon.create(
-          :label            => p["icon"]['label'],
-          :url              => p["icon"]['url'],
-          :iconType         => p["icon"]['type'],
+          :label            => p['properties']["icon"]['label'],
+          :url              => p['properties']["icon"]['url'],
+          :iconType         => p['properties']["icon"]['type'],
           )
       end
       
-      if p["object"]
-        puts "  Object: " + p["object"]["url"]
+      if p['properties']["object"]
+        puts "  Object: " + p['properties']["object"]["url"]
         poi.ubject = Ubject.create(
-          :url              => p["object"]['url'],
-          :contentType      => p["object"]['contentType'],
-          :size             => p["object"]['size'],
+          :url              => p['properties']["object"]['url'],
+          :contentType      => p['properties']["object"]['contentType'],
+          :size             => p['properties']["object"]['size'],
           )
         
         if poi.ubject.contentType == "model/vnd.layar.l3d"
-          poi.ubject.reducedURL    = p["object"]["reducedURL"]
+          poi.ubject.reducedURL    = p['properties']["object"]["reducedURL"]
         elsif poi.ubject.contentType == "text/html"
-          poi.ubject.width       = p["object"]["width"]
-          poi.ubject.height      = p["object"]["height"]
-          poi.ubject.scrollable  = p["object"]["scrollable"]
-          poi.ubject.interactive = p["object"]["interactive"]
+          poi.ubject.width       = p['properties']["object"]["width"]
+          poi.ubject.height      = p['properties']["object"]["height"]
+          poi.ubject.scrollable  = p['properties']["object"]["scrollable"]
+          poi.ubject.interactive = p['properties']["object"]["interactive"]
         end
         poi.ubject.save
       end
       
-      if p["transform"]
+      if p['properties']["transform"]
         puts "  Transform added"
         poi.transform = Transform.create(
-          :rel              => p["transform"]['rel'],
-          :angle            => p["transform"]['angle'],
-          :rotate_x         => p["transform"]['rotate_x'],
-          :rotate_y         => p["transform"]['rotate_y'],
-          :rotate_z         => p["transform"]['rotate_z'],
-          :translate_x      => p["transform"]['translate_x'],
-          :translate_y      => p["transform"]['translate_y'],
-          :translate_z      => p["transform"]['translate_x'],
-          :scale            => p["transform"]['scale'],
+          :rel              => p['properties']["transform"]['rel'],
+          :angle            => p['properties']["transform"]['angle'],
+          :rotate_x         => p['properties']["transform"]['rotate_x'],
+          :rotate_y         => p['properties']["transform"]['rotate_y'],
+          :rotate_z         => p['properties']["transform"]['rotate_z'],
+          :translate_x      => p['properties']["transform"]['translate_x'],
+          :translate_y      => p['properties']["transform"]['translate_y'],
+          :translate_z      => p['properties']["transform"]['translate_x'],
+          :scale            => p['properties']["transform"]['scale'],
           )
       end
       
-      
-      if p["checkbox"]
-        p["checkbox"].each do |c|
+      if p['properties']["checkbox"]
+        p['properties']["checkbox"].each do |c|
           puts "  Checkbox: " + c
           cat = Checkbox.find_by_label(c)
           if cat.nil?
@@ -156,10 +154,12 @@ poi_files.each do |poi_file|
     end
   end
 
-  checkboxes = Checkbox.all
-  if checkboxes.size > 0
+  if l.checkboxes.empty?
+    puts "No checkboxes to configure"
+  else
     puts "Checkbox configuration for Layar:"
-    checkboxes.each do |c|
+    l.checkboxes.each do |c|
+      puts c
       puts "#{c.option_value} | #{c.label}"
     end
   end
