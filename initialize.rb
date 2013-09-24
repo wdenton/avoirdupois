@@ -15,13 +15,15 @@
 # You should have received a copy of the GNU General Public License
 # along with Avoirdupois.  If not, see <http://www.gnu.org/licenses/>.
 #
-# Copyright 2012 William Denton
+# Copyright 2012, 2013 William Denton
 
 require 'rubygems'
 require 'active_record'
 require 'mysql2'
 
-dbconfig = YAML::load(File.open('config/database.yml'))[ENV['ENV'] ? ENV['ENV'] : 'development']
+this_directory = File.dirname(__FILE__)
+
+dbconfig = YAML::load(File.open("#{this_directory}/config/database.yml"))[ENV['RACK_ENV'] ? ENV['RACK_ENV'] : 'development']
 ActiveRecord::Base.establish_connection(dbconfig)
 
 # Primary key columns named "id" will be created automatically,

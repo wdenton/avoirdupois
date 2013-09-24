@@ -1,0 +1,229 @@
+{
+    "configuration": {
+	"layer_name": "checkboxsample",
+	"showMessage": "This is a sample layer in Layar, showing some Toronto museums, with checkboxes",
+	"refreshInterval": 300,
+	"refreshDistance": 100,
+	"fullRefresh": true,
+	"biwStyle": "classic"      
+    },
+    "type": "FeatureCollection",
+    "features": [
+	{
+	    "type": "Feature",
+	    "properties": {
+		"title": "Gardiner Museum",
+		"description": "Canada's national ceramics museum. 'We strive to be an inviting destination that inspires and connects people, art and ideas through clay.'",
+		    "footnote": "100 Queens' Park (intersection of Bloor St. and Avenue Rd.)",
+		    "imageURL": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/GardinerMuseum.jpg/260px-GardinerMuseum.jpg",
+		"biwStyle": "classic",
+		"doNotIndex": 0,
+		"showSmallBiw": 1,
+		"showBiwOnClick": 1,
+		"poiType": "geo",
+		"icon": {
+		    "label": "Gardiner Museum",
+		    "url": "http://www.miskatonic.org/avoirdupois/110x110-transparent-white-border.png",
+		    "type": 0
+		},
+		"checkbox": ["northerly"],
+		"actions": [
+		    { 
+			"label": "Web site",
+			"uri": "http://www.gardinermuseum.on.ca/",
+			"autoTriggerRange": "",
+			"autoTriggerOnly": "",
+			"contentType": "application/vnd.layar.internal",
+			"method": "GET",
+			"activityType": 1,
+			"params": "",
+			"closeBiw": 0,
+			"showActivity": 1,
+			"activityMessage": "",
+			"autoTrigger": false
+		    }
+		]
+	    },
+	    "geometry": {
+		"type": "Point",
+		"coordinates": [
+		    -79.39300,
+		    43.66832,
+		    3
+		]
+	    }
+	},
+	{
+	    "type": "Feature",
+	    "properties": {
+		"title": "Royal Ontario Museum",
+		"description": "A major museum for history and world culture.",
+		    "footnote": "",
+		    "imageURL": "http://www.miskatonic.org/avoirdupois/110x110-transparent-white-border.png",
+		"biwStyle": "classic",
+		"doNotIndex": 0,
+		"showSmallBiw": 1,
+		"showBiwOnClick": 1,
+		"poiType": "geo",
+		"icon": {
+		    "label": "Royal Ontario Museum",
+		    "url": "http://www.miskatonic.org/avoirdupois/110x110-transparent-white-border.png",
+		    "type": 0
+		},
+		"checkbox": ["northerly"],
+		"actions": [
+		    { 
+			"label": "Web site",
+			"uri": "http://rom.on.ca/",
+			"autoTriggerRange": "",
+			"autoTriggerOnly": "",
+			"contentType": "application/vnd.layar.internal",
+			"method": "GET",
+			"activityType": 1,
+			"params": "",
+			"closeBiw": 0,
+			"showActivity": 1,
+			"activityMessage": "",
+			"autoTrigger": false
+		    }
+		]
+	    },
+	    "geometry": {
+		"type": "Point",
+		"coordinates": [
+		    -79.39518,
+		    43.66822
+		]
+	    }
+	},
+	{
+	    "type": "Feature",
+	    "properties": {
+		"title": "Bata Shoe Museum",
+		"description": "The collection includes over 10,000 shoes from 4,500 years of history.",
+		    "footnote": "327 Bloor St. West",
+		    "imageURL": "http://www.miskatonic.org/avoirdupois/110x110-transparent-white-border.png",
+		"biwStyle": "classic",
+		"doNotIndex": 0,
+		"showSmallBiw": 1,
+		"showBiwOnClick": 1,
+		"poiType": "geo",
+		"icon": {
+		    "label": "Bata Shoe Museum",
+		    "url": "http://www.miskatonic.org/avoirdupois/110x110-transparent-white-border.png",
+		    "type": 0
+		},
+		"checkbox": ["northerly"],
+		"actions": [
+		    { 
+			"label": "Web site",
+			"uri": "http://www.batashoemuseum.ca/",
+			"autoTriggerRange": "",
+			"autoTriggerOnly": "",
+			"contentType": "application/vnd.layar.internal",
+			"method": "GET",
+			"activityType": 1,
+			"params": "",
+			"closeBiw": 0,
+			"showActivity": 1,
+			"activityMessage": "",
+			"autoTrigger": false
+		    }
+		]
+	    },
+	    "geometry": {
+		"type": "Point",
+		"coordinates": [
+		    -79.400139,
+		    43.667278
+		]
+	    }
+	},
+	{
+	    "type": "Feature",
+	    "properties": {
+		"title": "Textile Museum of Canada",
+		"description": "'The TMC's permanent collection celebrates cultural diversity and includes traditional fabrics, garments, carpets and related artifacts such as beadwork and basketry.'",
+		    "footnote": "55 Centre Avenue",
+		    "imageURL": "http://www.miskatonic.org/avoirdupois/110x110-transparent-white-border.png",
+		"biwStyle": "classic",
+		"doNotIndex": 0,
+		"showSmallBiw": 1,
+		"showBiwOnClick": 1,
+		"poiType": "geo",
+		"icon": {
+		    "label": "Textile Museum of Canada",
+		    "url": "http://www.miskatonic.org/avoirdupois/110x110-transparent-white-border.png",
+		    "type": 0
+		},
+		"checkbox": ["southerly"],
+		"actions": [
+		    { 
+			"label": "Web site",
+			"uri": "http://textilemuseum.ca/",
+			"autoTriggerRange": "",
+			"autoTriggerOnly": "",
+			"contentType": "application/vnd.layar.internal",
+			"method": "GET",
+			"activityType": 1,
+			"params": "",
+			"closeBiw": 0,
+			"showActivity": 1,
+			"activityMessage": "",
+			"autoTrigger": false
+		    }
+		]
+	    },
+	    "geometry": {
+		"type": "Point",
+		"coordinates": [
+		    -79.38686,
+		    43.65437
+		]
+	    }
+	},
+	{
+	    "type": "Feature",
+	    "properties": {
+		"title": "Mackenzie House",
+		"description": "The last home of William Lyon Mackenzie, leader of the 1837 Upper Canada Rebellion and later Toronto's first mayor.",
+		    "footnote": "82 Bond Street",
+		    "imageURL": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Mackenzie_House.JPG/250px-Mackenzie_House.JPG",
+		"biwStyle": "classic",
+		"doNotIndex": 0,
+		"showSmallBiw": 1,
+		"showBiwOnClick": 1,
+		"poiType": "geo",
+		"icon": {
+		    "label": "Mackenzie House",
+		    "url": "http://www.miskatonic.org/avoirdupois/110x110-transparent-white-border.png",
+		    "type": 0
+		},
+		"checkbox": ["southerly", "house"],
+		"actions": [
+		    { 
+			"label": "Web site",
+			"uri": "http://www.toronto.ca/culture/mackenzie_house.htm",
+			"autoTriggerRange": "",
+			"autoTriggerOnly": "",
+			"contentType": "application/vnd.layar.internal",
+			"method": "GET",
+			"activityType": 1,
+			"params": "",
+			"closeBiw": 0,
+			"showActivity": 1,
+			"activityMessage": "",
+			"autoTrigger": false
+		    }
+		]
+	    },
+	    "geometry": {
+		"type": "Point",
+		"coordinates": [
+		    -79.378291,
+		    43.655665
+		]
+	    }
+	}
+    ]
+}

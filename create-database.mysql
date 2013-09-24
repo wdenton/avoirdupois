@@ -1,0 +1,10 @@
+# Development database
+create database layer_development;
+create user 'layer'@'localhost' identified by 'PASSWORD'; 
+grant all privileges on layer_development.* to 'layer'@'localhost';
+
+# Uncommnt this when seting up production database
+# create database layer_production;
+# create user 'layer'@'localhost' identified by 'PASSWORD'; 
+# grant all privileges on layer_production.* to 'layer'@'localhost';
+
