@@ -1,7 +1,7 @@
 Avoirdupois
 ===========
 
-Point of interest (POI) provider for Layar, written in Ruby.
+Point of interest (POI) provider for the augmented reality viewer [Layar](http://www.layar.com/).
 
 ## Requirements
 
@@ -13,7 +13,7 @@ You will also need [Git](http://git-scm.com/) to get this source code.
 
     $ sudo apt-get install git
 
-[Bundler](http://bundler.io/) manages the required Ruby gems such as Sinatra:
+[Bundler](http://bundler.io/) manages the required Ruby gems such as Sinatra. You may need to preface this command with `sudo` if you're not using RVM:
 
     $ gem install bundler
 
@@ -29,7 +29,7 @@ All of these installation commands are meant for Debian/Ubuntu; adapt them to yo
 
 ### The source code
 
-To install Avoirdupois you need to get this source code by either forking this GitHub repository or downloading it directly.  Then use [Bundler](http://gembundler.com/) to first make sure all of the necessary requirements are in place and then to run the application safely.  (Note: when installing Bundler, if you're not using RVM you may need to run `sudo gem install bundler`.)  This will clone this repository and then get it running:
+To install Avoirdupois you need to get this source code by either forking this GitHub repository or downloading it directly.  This will clone the repository, download all the files, and show what's there:
 
     $ git clone git@github.com:wdenton/avoirdupois.git
     $ cd avoirdupois
@@ -128,7 +128,7 @@ That simple request is how Layar will get points of interest from Avoirdupois. L
 
 * layerName: the name of the layer
 * lon: longitude of user
-* lat: latiude of user
+* lat: latitude of user
 * version: version of Layar client app
 * radius: how far (in meters) to look for POIs
 
@@ -237,7 +237,7 @@ Then, as before:
 
 ## To do
 
-* Determine best database to use, and us it. PostgrSQL for GIS extensions?  Or perhaps SQLite for portable simplicity?
+* Determine best database to use, and us it. PostgreSQL for GIS extensions?  Or perhaps SQLite for portable simplicity?
 * Include database setup script.
 * Move from ActiveRecord to DataMapper for simplicity, if possible.
 * Write tests and use them.
