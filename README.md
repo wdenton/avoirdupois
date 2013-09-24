@@ -230,10 +230,10 @@ Then, as before:
 * Initialize
 * Load layers
 
+    $ RACK\_ENV=production ./initialize.rb
     $ cd loaders
-	$ RACK\_ENV=production ./loader.rb campus-tour/campus-tour.yaml
-    $ cd york
-	$ RACK\_ENV=production ./load-york-data.rb
+    $ RACK\_ENV=production ./loader.rb campus-tour/campus-tour.yaml
+    $ RACK\_ENV=production ./york/load-york-data.rb
 
 ## To do
 

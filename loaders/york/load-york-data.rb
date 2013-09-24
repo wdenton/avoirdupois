@@ -63,7 +63,7 @@ placemark_files = ["all_placemarks.js", "glendon_placemarks.js", "other_location
 # Osgoode Professional Development Centre
 
 begin
-  supplemental = YAML.load_file(supplemental_file)
+  supplemental = YAML.load_file("#{this_directory}/#{supplemental_file}")
 rescue Exception => e
   STDERR.puts e
   exit 1
@@ -82,7 +82,7 @@ option_value = 1
 placemark_files.each do |placemark_file|
 
   begin
-    json = JSON.parse(File.open(placemark_file).read)
+    json = JSON.parse(File.open("#{this_directory}/#{placemark_file}").read)
   rescue Exception => e
     STDERR.puts e
     exit 1
