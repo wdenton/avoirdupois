@@ -13,6 +13,10 @@ You will also need [Git](http://git-scm.com/) to get this source code.
 
     $ sudo apt-get install git
 
+[Bundler](http://bundler.io/) manages the required Ruby gems such as Sinatra:
+
+    $ gem install bundler
+
 While I'm at it, let me recommend two other useful tools: [curl](http://curl.haxx.se/) and [jsonlint](https://github.com/zaach/jsonlint).
 
     $ sudo apt-get install curl
@@ -31,8 +35,6 @@ To install Avoirdupois you need to get this source code by either forking this G
     $ cd avoirdupois
     $ ls
 
-You will see all of the files
-
 ### Setting up databases
 
 Before going any further you need to set up the databases Avoirdupois will use.  The configuration details are in [config/database.yml](config/database.yml).
@@ -43,25 +45,24 @@ Set up at least the `layer_development` database and put the login information i
 
     # ./initialize.rb
 
+MySQL is required right now, but this may change.
+
 ### Running the web service
 
 Now you can run the actual web service.
 
-    $ gem install bundler
     $ bundle install
     $ bundle exec rackup config.ru
 
 You should now see a message like this:
 
-    [2013-01-22 10:49:56] INFO  WEBrick 1.3.1
-    [2013-01-22 10:49:56] INFO  ruby 1.9.3 (2012-04-20) [x86_64-linux]
-    [2013-01-22 10:49:56] INFO  WEBrick::HTTPServer#start: pid=14347 port=9292
+    [2013-09-23 20:38:21] INFO  WEBrick 1.3.1
+    [2013-09-23 20:38:21] INFO  ruby 2.0.0 (2013-06-27) [x86_64-linux]
+    [2013-09-23 20:38:21] INFO  WEBrick::HTTPServer#start: pid=26438 port=9292
 
-Good! This means that the web service is running on your machine on port 9292.  You can now test it by either hitting it on the command line (from another shell) or in your browser with a URL like this:
+Good! This means that the web service is running on your machine on port 9292.  You can now test it by pretending you're at (-79.39717, 43.66789), the corner of Bloor and Bedford in Toronto, midway between three of the sample POIs. Hit it on the command line (from another shell) like so, or visit the URL directly in a browser:
 
     $ curl "http://localhost:9292/?layerName=sample&lon=-79.39717&lat=43.66789&version=6.2&radius=1000"
-
-((-79.39717, 43.66789) is the corner of Bloor St. and Bedford Rd. in Toronto, midway between three of the sample POIs.)
 
 You'll get an error because there is no such layer 'sample' yet:
 
@@ -97,7 +98,7 @@ Now rerun the request:
 
     $ curl "http://localhost:9292/?layerName=sample&lon=-79.39717&lat=43.66789&version=6.2&radius=1000"
 
-It should respond with JSON output (as defined in Layar's [GetPOIs Response](https://www.layar.com/documentation/browser/api/getpois-response/)). As long as there is some JSON, even if it's not much, that's good.  If there's an error, look at your console to see what it might be.
+It should respond with JSON output (as defined in Layar's [GetPOIs Response](https://www.layar.com/documentation/browser/api/getpois-response/)).
 
 If you installed `jsonlint` then this will make the output more readable:
 
@@ -165,7 +166,7 @@ Layers can have checkboxes that let the user filter POIs by type. [checkbox-samp
 
 That checkbox configuration needs to be set up on Layar's web site for the filters to work.
 
-If query from the corner of Bay St. and Dundas St. (-79.38335, 43.65559) and restrict to just "house" by adding CHECKBOXLIST=3 then we should just get one POI back, since Campbell House is within range and the only house:
+If we query from further south in Toronto, at the corner of Bay and Dundas (-79.38335, 43.65559), and restrict to just "house" by adding CHECKBOXLIST=3 then we should just get one POI back, since Campbell House is within range and the only house:
 
     $ curl "http://localhost:9292/?layerName=checkboxsample&lon=-79.38335&lat=43.65559&version=6.2&radius=1000&CHECKBOXLIST=3" | jsonlint
     {
@@ -187,11 +188,21 @@ If query from the corner of Bay St. and Dundas St. (-79.38335, 43.65559) and res
               "lon": -79.3783
             }
           },
-     
+    [ ... and more ... ]
+
+You can see debugging output in the shell where you ran the web service:
+
+        D, [2013-09-23T15:02:50.964974 #21551] DEBUG -- : Latitude: 43.65559
+        D, [2013-09-23T15:02:50.965151 #21551] DEBUG -- : Longitude: -79.38335
+        D, [2013-09-23T15:02:50.965250 #21551] DEBUG -- : Radius: 1000
+        D, [2013-09-23T15:02:50.965393 #21551] DEBUG -- : Checkbox list: [3]
+        D, [2013-09-23T15:02:50.966664 #21551] DEBUG -- : Layer has checkboxes
+        D, [2013-09-23T15:02:50.968280 #21551] DEBUG -- : Found 1 POIs
+        D, [2013-09-23T15:02:50.968687 #21551] DEBUG -- : Hotspot 10: Mackenzie House
 
 ## Loading in POIS
 
-The easiest way to create a layer and load in a set of POIs is to make a [GeoJSON](http://geojson.org/) file.  Aside from the sample layer there is also [campus-tour.geojson](loaders/campus-tour/campus-tour.geojson), a small set of six POIs for the [Alternative Campus Tour](http://alternativecampustour.info.yorku.ca/) at York University.  Copy an existing GeoJSON file, edit the layer name and POIs, and load it in as above.  ([GeoJSONLint](http://geojsonlint.com/) may be helpful.)  The Layar documentation explains what each field means.
+The easiest way to create a layer and load in a set of POIs is to make a GeoJSON file and load it with `loader.rb`.  Aside from the sample layers you might also look at [campus-tour.geojson](loaders/campus-tour/campus-tour.geojson), a small set of six POIs for the [Alternative Campus Tour](http://alternativecampustour.info.yorku.ca/) at York University.  Copy an existing GeoJSON file, edit the layer name and POIs, and load it in as above.  ([GeoJSON](http://geojson.org/) is a flexible and friendly format for storing this information. It's easily mapped, including here on GitHub, which renders GeoJSON files as maps.  [GeoJSONLint](http://geojsonlint.com/) may be helpful for checking your files. The Layar documentation explains what each field in the file means.)
 
 Another way is to use ActiveRecord to construct POI objects and save them. This is how [load-york-data.rb](loaders/york/load-york-data.rb) works to set up POIs for the view of York University's campuses.  It pulls in POIs from a few sources and constructs and saves the POI object directly, which for various reasons is easier than dumping to a file and loading that. See the [README](loaders/york/load-york-data/README.md) for more.
 
@@ -226,4 +237,14 @@ Then, as before:
 
 TO DO: Explain about loading data.
 
+# To do
 
+* Determine best database to use, and us it. PostgrSQL for GIS extensions?  Or perhaps SQLite for portable simplicity?
+* Include database setup script.
+* Move from ActiveRecord to DataMapper for simplicity, if possible.
+* Write tests and use them.
+* Is there better way to initialize the database, with rake or something?
+
+Longer term:
+
+* Act as POI provider for Wikitude and Junaio and other AR applications.
