@@ -70,7 +70,7 @@
 		},
 		"actions": [
 		    { 
-			"label": "Read about Boyer Woodlot",
+			"label": "Read about the Boyer Woodlot",
 			"uri": "http://alternativecampustour.info.yorku.ca/sites/boyer-woodlot/",
 			"autoTriggerRange": "",
 			"autoTriggerOnly": "",
@@ -98,7 +98,7 @@
 	    "properties": {
 		"title": "Scott Library",
 		"description": "I love the library!",
-		"footnote": "As told by Dana Craig",
+		"footnote": "As told by Dana Craig.",
 		"imageURL": "http://alternativecampustour.info.yorku.ca/files/2013/04/ar-scott-icon-110x110.jpg",
 		"biwStyle": "classic",
 		"doNotIndex": 0,

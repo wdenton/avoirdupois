@@ -231,9 +231,8 @@ Then, as before:
 * Load layers
 
     $ RACK\_ENV=production ./initialize.rb
-    $ cd loaders
-    $ RACK\_ENV=production ./loader.rb campus-tour/campus-tour.geojson
-    $ RACK\_ENV=production ./york/load-york-data.rb
+    $ RACK\_ENV=production ./loaders/loader.rb campus-tour/campus-tour.geojson
+    $ RACK\_ENV=production ./loaders/york/load-york-data.rb
 
 ## To do
 
