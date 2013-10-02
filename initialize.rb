@@ -24,6 +24,8 @@ require 'mysql2'
 this_directory = File.dirname(__FILE__)
 
 dbconfig = YAML::load(File.open("#{this_directory}/config/database.yml"))[ENV['RACK_ENV'] ? ENV['RACK_ENV'] : 'development']
+puts "Setting up database: #{dbconfig['database']}"
+
 ActiveRecord::Base.establish_connection(dbconfig)
 
 # Primary key columns named "id" will be created automatically,
