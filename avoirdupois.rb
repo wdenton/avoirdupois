@@ -85,6 +85,9 @@ get "/" do
   errorcode = 0
   errorstring = "ok"
 
+  # See https://www.layar.com/documentation/browser/api/getpois-request/
+  # for documentation on the GetPOIs request that is being handled here.
+  
   layer = Layer.find_by name: params[:layerName]
 
   if layer
@@ -158,18 +161,16 @@ get "/" do
     # use them in our SQL query because it won't work.  So we need to have
     # two different SQL queries ready, one for each case.
 
-    if layer.has_checkboxes
-      # This layer has some, so we need a more complicated query.
-      logger.debug "Layer has checkboxes"
+    if checkmarks.size > 0  && layer.has_checkboxes
+      # This layer has checkboxes configured and checkbox information was passed in.
+      # If the layer has checkboxes but no checkbox information is passed, ignore the filters completely
+      # and use the simple query (defined in the else).
+      logger.debug "Layer has checkboxes; using special query"
 
       # When no checkboxes are selected, return nothing with
       # "c.option_value in (NULL) "
       checkmarks = "NULL" if checkmarks.empty?
       
-      # When no checkboxes are selected, assume it's an oversight
-      # and return all POIs in range.
-      # checkmarks = known_checkboxes if checkmarks.empty?
-
       sql = "SELECT p.*,
  (((acos(sin((? * pi() / 180)) * sin((lat * pi() / 180)) +  cos((? * pi() / 180)) * cos((lat * pi() / 180)) * cos((? - lon) * pi() / 180))) * 180 / pi())* 60 * 1.1515 * 1.609344 * 1000) AS distance
  FROM  pois p
@@ -183,8 +184,9 @@ get "/" do
       pois = Poi.find_by_sql([sql, latitude, latitude, longitude, layer.id, checkmarks, radius])
 
     else
-
-      # We can do a simpler query.
+      # We can do a simpler query, because either
+      # the layer doesn't have any checkboxes defined OR it does but no CHECKBOXLIST was passed in so we'll just ignore it.
+      
       sql = "SELECT p.*,
  (((acos(sin((? * pi() / 180)) * sin((lat * pi() / 180)) +  cos((? * pi() / 180)) * cos((lat * pi() / 180)) * cos((? - lon) * pi() / 180))) * 180 / pi())* 60 * 1.1515 * 1.609344 * 1000) AS distance
  FROM  pois p
