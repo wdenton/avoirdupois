@@ -12,5 +12,3 @@ disable :run, :reload
 
 require './avoirdupois.rb'
 run Sinatra::Application
-
-
