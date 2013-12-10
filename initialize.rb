@@ -54,7 +54,6 @@ ActiveRecord::Schema.define(:version => 001) do
     t.string     :title, :null => false
     t.string     :description
     t.string     :footnote
-    t.integer    :yorknum
     t.float      :lat, :null=> false
     t.float      :lon, :null=> false
     t.string     :imageURL

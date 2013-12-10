@@ -91,7 +91,6 @@ placemark_files.each do |placemark_file|
   json.each do |placemark|
 
     poi = Poi.new
-    poi.yorknum = placemark["ID"]
     poi.title = CGI.unescapeHTML(placemark["title"])
     STDERR.puts poi.title
 
