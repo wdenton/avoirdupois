@@ -1,0 +1,35 @@
+<carif xmlns:gml="http://www.opengis.net/gml">
+  <arml>
+    <ARElements>
+      <Feature id="12345">
+	<anchors>
+	  <Geometry>
+	    <gml:Point>
+	      <gml:pos>-79.39518 43.66822</gml:pos>
+	    </gml:Point>
+	  </Geometry>
+	</anchors>
+	<name>Royal Ontario Museum</name>
+	<description>
+	  <![CDATA[ The Royal Ontario Museum is a museum in Toronto, Ontario.]]>
+	</description>
+	<metadata>
+	  <actions>
+	    <action mime-type="text/html" label="Open webpage">
+	      <uri>https://www.miskatonic.org/</uri>
+	    </action>
+	  </actions>
+	</metadata>
+      </Feature>
+    </ARElements>
+  </arml>
+  <ARExperience>
+    <name>Avoirdupois CARIF Test</name>
+    <description><![CDATA[ A description here]]></description>
+    <metaData>
+      <!-- icon href="http://some.doma.in/myIcon.png" / -->
+      <author>William Denton</author>
+      <webpage href="https://www.miskatonic.org/" />
+    </metaData>
+  </ARExperience>
+</carif>
