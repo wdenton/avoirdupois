@@ -39,6 +39,7 @@ require 'sinatra'
 
 require 'active_record'
 require 'mysql2'
+require 'yaml'
 
 # Sinatra template app: https://github.com/mikker/my_way
 
@@ -87,7 +88,7 @@ get "/" do
 
   # See https://www.layar.com/documentation/browser/api/getpois-request/
   # for documentation on the GetPOIs request that is being handled here.
-  
+
   layer = Layer.find_by name: params[:layerName]
 
   if layer
@@ -151,10 +152,10 @@ get "/" do
     # If there really is some way to say
     # @layer.pois.group(:id).within_range(latitude, longitude, radius)
     # then we definitely want to use it.
-    
+
     # Note re tests: make sure the id numbers returned are unique.
     # Not specifying IDs from the pois table will lead to trouble.
-    
+
     # All right, this stuff about checkboxes is a bit ugly.
     #
     # If there are no checkboxes given for a layer, then we don't want to
@@ -170,7 +171,7 @@ get "/" do
       # When no checkboxes are selected, return nothing with
       # "c.option_value in (NULL) "
       checkmarks = "NULL" if checkmarks.empty?
-      
+
       sql = "SELECT p.*,
  (((acos(sin((? * pi() / 180)) * sin((lat * pi() / 180)) +  cos((? * pi() / 180)) * cos((lat * pi() / 180)) * cos((? - lon) * pi() / 180))) * 180 / pi())* 60 * 1.1515 * 1.609344 * 1000) AS distance
  FROM  pois p
@@ -186,7 +187,7 @@ get "/" do
     else
       # We can do a simpler query, because either
       # the layer doesn't have any checkboxes defined OR it does but no CHECKBOXLIST was passed in so we'll just ignore it.
-      
+
       sql = "SELECT p.*,
  (((acos(sin((? * pi() / 180)) * sin((lat * pi() / 180)) +  cos((? * pi() / 180)) * cos((lat * pi() / 180)) * cos((? - lon) * pi() / 180))) * 180 / pi())* 60 * 1.1515 * 1.609344 * 1000) AS distance
  FROM  pois p
@@ -232,14 +233,14 @@ get "/" do
           }
         end
       end
-      
+
       if poi.icon
         hotspot["icon"] = {
           "url"  => poi.icon.url,
           "type" => poi.icon.iconType
         }
       end
-      
+
       if poi.ubject # Object being a reserved word in Ruby
         hotspot["object"] = {
           # These three are common to both kinds of objects.
@@ -257,7 +258,7 @@ get "/" do
             "interactive" => poi.ubject.interactive
           }
         end
-        
+
       end
 
       # TODO Test a transform
@@ -281,10 +282,10 @@ get "/" do
           "scale" => poi.transform.scale
         }
       end
-      
+
       hotspots << hotspot
     end
-    
+
     if hotspots.length == 0
       errorcode = 21
       errorstring = "No results found.  Try adjusting your search range and any filters."
@@ -301,7 +302,7 @@ get "/" do
       "errorString"     => errorstring,
     }
     # TODO add layer actions
-    
+
     # "NOTE that this parameter must be returned if the GetPOIs request
     # doesn't contain a requested radius. It cannot be used to overrule a
     # value of radius if that was provided in the request. the unit is
@@ -335,4 +336,3 @@ get "/*" do
   content_type "text/plain"
   "You need to supply parameters to find POIs for Layar.  See https://github.com/wdenton/avoirdupois"
 end
-  
